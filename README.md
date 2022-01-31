@@ -1,8 +1,8 @@
 # ts-movie-list
 
-###Typescript application
+### ios application written entirely in typescript using react-native
 
-###Frontend  
+### Frontend  
     * to start frontend just run  
 ```bash
 sudo apt install expo
@@ -11,7 +11,7 @@ expo start
     * routes contain the pages to be rendered
     * components used on the pages are located in ./components
 
-###Backend  
+### Backend  
     * contains backend in ./server  
     * to start backend run
 ```
