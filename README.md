@@ -1,9 +1,9 @@
 # ts-movie-list
 
-### ios application written entirely in typescript using react-native
+### ios application written entirely in typescript using react-native/expo/nodemon
 
 ### Frontend  
-* to start frontend just run  
+* to start frontend just run:
 ```bash
 sudo apt install expo
 expo start
