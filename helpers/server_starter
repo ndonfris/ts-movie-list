@@ -1,0 +1,60 @@
+#!/usr/bin/python3
+
+from pyngrok import ngrok
+import os
+from datetime import datetime
+"""
+
+    Author:  Nick Donfris
+    Purpose: Simple python file to write ngrok url in URL.tsx file
+    (since ngrok isn't free). Also starts typescript server located at
+    '../server/build/server.ts' by envoking nodemon.
+
+"""
+
+
+# fixes format for when server will end
+now = datetime.now()
+curr_hour = str(now.hour)
+curr_minute = str(now.minute) 
+if now.minute < 10:
+    curr_min = "0" + str(now.minute)
+started = str(now.hour) + ":" + curr_minute
+if now.hour == 22:
+    end_hour = "00:" + curr_minute
+elif now.hour == 23:
+    end_minute = "01:" + curr_minute 
+else:
+    will_end = str(now.hour+2) + ":" + curr_minute 
+
+
+# Start ngrok
+# <NgrokTunnel: "http://<public_sub>.ngrok.io" -> "http://localhost:80">
+ngrok_tunnel = ngrok.connect(3000)
+ngrok_str = str(ngrok_tunnel)
+ngrok_str = ngrok_str.replace("NgrokTunnel: ", "")
+ngrok_str = ngrok_str.replace(' -> "http://localhost:3000"', "")
+
+# Write to server_file
+with open("./URL.tsx", 'w') as server_file:
+    server_file.truncate(0)
+    server_file.write("/*\n *\n")
+    server_file.write(" * Server started at:     " + started + "\n")
+    server_file.write(" * Server will end at:    " + will_end + "\n *\n")
+    server_file.write(" */\n\n\n")
+    server_file.write("const serverURL = " + ngrok_str + ";\n")
+    server_file.write("\nexport default serverURL;")
+
+
+# store ngrok process, allowing script to be ended by ctrl+c
+ngrok_process = ngrok.get_ngrok_process()
+
+try:
+    print(" Server is running...")
+    print(" Server will end at: " + will_end)
+    os.system('nodemon ../server/source/server.ts')
+    ngrok_process.proc.wait()
+
+except KeyboardInterrupt:
+    print(" Shutting down server.")
+    ngrok.kill()
