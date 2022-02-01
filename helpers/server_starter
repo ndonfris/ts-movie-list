@@ -18,16 +18,17 @@ from datetime import datetime
 # fixes format for when server will end
 now = datetime.now()
 curr_hour = str(now.hour)
-curr_minute = str(now.minute) 
+curr_minute = str(now.minute)
 if now.minute < 10:
     curr_min = "0" + str(now.minute)
 started = str(now.hour) + ":" + curr_minute
 if now.hour == 22:
-    end_hour = "00:" + curr_minute
+    end_hour = "00"
 elif now.hour == 23:
-    end_minute = "01:" + curr_minute 
+    end_hour = "01"
 else:
-    will_end = str(now.hour+2) + ":" + curr_minute 
+    end_hour = str(now.hour+2)
+will_end = end_hour + ":" + curr_minute
 
 
 # Start ngrok
@@ -49,8 +50,7 @@ for dir in file_path[::-1]:
     if (dir == 'ts-movie-list'):
         break
 
-print(os.getcwd())
-with open("helpers/URL.tsx", 'w') as server_file:
+with open("./helpers/URL.tsx", 'w') as server_file:
     server_file.truncate(0)
     server_file.write("/*\n *\n")
     server_file.write(" * Server started at:     " + started + "\n")
@@ -64,7 +64,7 @@ ngrok_process = ngrok.get_ngrok_process()
 try:
     print(" Server is running...")
     print(" Server will end at: " + will_end)
-    os.system('nodemon server/source/server.ts')
+    os.system('nodemon ./server/source/server.ts')
     ngrok_process.proc.wait()
 
 except KeyboardInterrupt:

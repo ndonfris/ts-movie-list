@@ -5,6 +5,7 @@ import logging from './config/logging';
 import config from './config/config';
 import SearchRoute from './routes/search';
 import ShowMoreRoute from './routes/show_more';
+import StreamingOptionsRoute from './routes/streaming_options';
 
 const NAMESPACE = 'Server';
 const router = express();
@@ -45,6 +46,8 @@ router.use((req, res, next) => {
 /* Routes */
 router.use('/search', SearchRoute);
 router.use('/show_more', ShowMoreRoute);
+router.use('/streaming', StreamingOptionsRoute);
+/* router.use('/browse', BrowseRoute); */
 
 /* Error Handling */
 router.use((req, res, next) => {

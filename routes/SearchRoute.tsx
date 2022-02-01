@@ -5,31 +5,7 @@ import MovieList from '../components/MovieList';
 import {createRequest} from '../helpers/Functions';
 import {MovieArray, Movie} from '../helpers/Interfaces';
 import serverURL from '../helpers/URL';
-
-const Movies = [
-    {
-        "Poster": "https://m.media-amazon.com/images/M/MV5BZDE2ZDFhMDAtMDAzZC00ZmY3LThlMTItMGFjMzRlYzExOGE1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
-        "Title": "Batman: Arkham City",
-        "Type": "game",
-        "Year": "2011",
-        "imdbID": "tt1568322",
-    },
-    {
-        "Poster": "https://m.media-amazon.com/images/M/MV5BYTBiZjFlZDQtZjc1MS00YzllLWE5ZTQtMmM5OTkyNjZjMWI3XkEyXkFqcGdeQXVyMTA1OTEwNjE@._V1_SX300.jpg",
-        "Title": "Batman Beyond",
-        "Type": "series",
-        "Year": "1999–2001",
-        "imdbID": "tt0147746",
-    },
-    {
-        "Poster": "https://m.media-amazon.com/images/M/MV5BYjdkZWFhNzctYmNhNy00NGM5LTg0Y2YtZWM4NmU2MWQ3ODVkXkEyXkFqcGdeQXVyNTA0OTU0OTQ@._V1_SX300.jpg",
-        "Title": "Son of Batman",
-        "Type": "movie",
-        "Year": "2014",
-        "imdbID": "tt3139072",
-    },
-];
-
+import Movies from '../helpers/my250.json';
 
 export default function SearchRoute() {
     const [query, setQuery] = useState('');

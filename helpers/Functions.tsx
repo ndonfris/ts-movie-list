@@ -1,4 +1,16 @@
-import {PostRequest, Movie, MovieMoreInfo, Rating} from './Interfaces';
+import {PostRequest, Movie, MovieMoreInfo, StreamWebsite, StreamCountry} from './Interfaces';
+
+export function requestHelper(bodyString : string ): RequestInit {
+    return {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({"title": bodyString}),
+    }
+}
 
 export function createRequest(request: PostRequest): RequestInit {
     return {
@@ -11,6 +23,7 @@ export function createRequest(request: PostRequest): RequestInit {
         body: JSON.stringify({"title": request.body})
     }
 }
+
 
 export function failedMovieMoreInfo(found: Movie) : MovieMoreInfo{
     return {
@@ -40,4 +53,20 @@ export function failedMovieMoreInfo(found: Movie) : MovieMoreInfo{
         Website: "N/a",
         Response: "N/a"
     };
+}
+
+export function noStreamingSites(imdbID : string): StreamWebsite[] {
+    return [{
+        id: imdbID,
+        icon: "",
+        name: "Not Found",
+        url: "",
+        display_name: "n/a",
+        country: [
+            {
+                itemNumber: 0,
+                location: "",
+            },
+        ],
+    }]
 }

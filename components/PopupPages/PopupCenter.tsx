@@ -84,9 +84,9 @@ const styles = StyleSheet.create({
     plot: {
         fontSize: 14,
         paddingTop: 10,
-        minHeight: 110,
-        paddingLeft: 5,
-        paddingRight: 5,
+        minHeight: 80,
+        paddingLeft: 0,
+        paddingRight: 15,
     },
     textInline: {
         flexDirection: "row",

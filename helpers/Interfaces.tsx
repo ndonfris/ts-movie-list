@@ -58,3 +58,17 @@ export interface MovieMoreInfo {
     Website?: string;
     Response?: string;
 }
+
+export interface StreamCountry {
+    itemNumber?: number;
+    location?: string;
+}
+
+export interface StreamWebsite {
+    country?: StreamCountry[];
+    display_name?: string;
+    icon?: string;
+    id?: string;
+    name?: string;
+    url?: string;
+}

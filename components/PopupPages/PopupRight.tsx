@@ -1,7 +1,7 @@
 import React from 'react';
-import {Alert, Modal, StyleSheet, Text, TouchableOpacity, View, Image} from "react-native";
+import {StyleSheet, Text, Pressable, View, Image, TouchableOpacity } from "react-native";
 import {MovieMoreInfo} from '../../helpers/Interfaces';
-
+import {AntDesign, Octicons} from '@expo/vector-icons';
 
 
 
@@ -12,33 +12,47 @@ interface Props {
 const PopupRight = ({moreInfo}: Props) => {
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.button}>
-                <Text style={styles.text}>Add {moreInfo.Title} to Watch List</Text>
+            <TouchableOpacity style={styles.imageContainer}>
+                <Image source={{uri: moreInfo.Poster}} style={styles.image} />
+                <View style={styles.textWrapper}>
+                    <Text style={styles.text}>Add to watch-list</Text>
+                </View>
             </TouchableOpacity>
         </View>
-    );
-}
+    )
+};
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    button: {
-        alignContent: "center",
-        justifyContent: 'center',
-        alignItems: "center",
-        backgroundColor: "blue",
-        borderRadius: 20,
-        width: "50%",
-        height: 60,
     },
     text: {
-        color: "#fff",
-        justifyContent: 'center',
+        height: 30,
+        width: 260,
         textAlign: "center",
-    }
+        textAlignVertical: "center",
+        color: '#fff',
+        marginTop: 5,
+    },
+    textWrapper: {
+        marginTop: 20,
+        textAlignVertical: "center",
+        height: 30,
+        width: 260,
+        backgroundColor: '#292929',
+        borderRadius: 20,
+    },
+    imageContainer: {
+        flexGrow: 1,
+        borderRadius: 20,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    image: {
+        width: "80%",
+        height: "85%",
+        borderRadius: 20,
+    },
 })
 
 export default PopupRight;
