@@ -2,13 +2,15 @@
 
 from pyngrok import ngrok
 import os
+import sys
 from datetime import datetime
+
 """
 
     Author:  Nick Donfris
     Purpose: Simple python file to write ngrok url in URL.tsx file
     (since ngrok isn't free). Also starts typescript server located at
-    '../server/build/server.ts' by envoking nodemon.
+    ../server/build/server.ts by envoking nodemon.
 
 """
 
@@ -35,8 +37,20 @@ ngrok_str = str(ngrok_tunnel)
 ngrok_str = ngrok_str.replace("NgrokTunnel: ", "")
 ngrok_str = ngrok_str.replace(' -> "http://localhost:3000"', "")
 
-# Write to server_file
-with open("./URL.tsx", 'w') as server_file:
+# edit the directory so nodemon command run's correctly
+file_path = os.getcwd().split('/')
+if ('ts-movie-list' not in file_path):
+    print("Error: you are not in a directory containing the server")
+    sys.exit(1)
+
+for dir in file_path[::-1]:
+    if (dir != 'ts-movie-list'):
+        os.chdir('../')
+    if (dir == 'ts-movie-list'):
+        break
+
+print(os.getcwd())
+with open("helpers/URL.tsx", 'w') as server_file:
     server_file.truncate(0)
     server_file.write("/*\n *\n")
     server_file.write(" * Server started at:     " + started + "\n")
@@ -45,14 +59,12 @@ with open("./URL.tsx", 'w') as server_file:
     server_file.write("const serverURL = " + ngrok_str + ";\n")
     server_file.write("\nexport default serverURL;")
 
-
 # store ngrok process, allowing script to be ended by ctrl+c
 ngrok_process = ngrok.get_ngrok_process()
-
 try:
     print(" Server is running...")
     print(" Server will end at: " + will_end)
-    os.system('nodemon ../server/source/server.ts')
+    os.system('nodemon server/source/server.ts')
     ngrok_process.proc.wait()
 
 except KeyboardInterrupt:
