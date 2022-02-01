@@ -1,6 +1,20 @@
 # ts-movie-list
 
-### ios application written entirely in typescript using react-native/expo/nodemon
+# ios application written entirely in typescript using react-native/expo/nodemon
+
+## Next Goals
+* add database
+* add popupleft feature for -> find similar movies (rapid api has free imdb-api with this feature)
+* [this is the 100% free api to implement](https://rapidapi.com/SAdrian/api/data-imdb1/)
+    * get keywords to movie 
+    * use getMoviesByKeyword
+    * also has man other useful api calls, but only renders {"imdb_id": ..., "title": ...}
+* [switch to this api for searches?](https://rapidapi.com/hmerritt/api/imdb-internet-movie-database-unofficial/)
+* add browse onChange feature 
+    * [dropdown picker website](https://hossein-zare.github.io/react-native-dropdown-picker-website/docs/usage)
+    * [rapid api link - advanced movie search](https://rapidapi.com/jakash1997/api/advanced-movie-search/)
+    * [maybe add api for in theaters results](https://rapidapi.com/patriciaatrindade/api/movies115/)
+
 
 ### Frontend  
 * to start frontend just run:
@@ -22,3 +36,4 @@ expo start
 sudo apt install ngrok
 pip install pygrok
 ```
+
