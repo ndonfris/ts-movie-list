@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+# This script automates executing the commands listed below.
+# It opens two terminals, for the respective frontend and backends.
+# My terminal of choice is tilix, however this terminal is replaceable.
+# If you are on iTerm, I don't believe it has the same functionality 
+# so you might have to use the commands below. (commands are denoted with
+# the '>')
+#   > cd frontend 
+#   > expo start
+#       this command starts the frontend application
+#       which is then scannable via qr code or openning
+#       in browser. To use the qr code, you need to install the 
+#       the expo app from prefered appstore
+#
+#   > ./server_starter 
+#        this executeable essentially runs the following sequence of commands
+#   > ngrok http 3000   
+#        allows the frontend to send requests through port 3000 to the backend   
+#   > nodemon ./backend/server/source/server.ts
+#        starts up the server to listen on port 3000
+
+working_dir=$(pwd)
+
+tilix --working-directory=$working_dir/frontend --command=expo\ start
+
+tilix --working-directory=$working_dir --command=./server_starter
