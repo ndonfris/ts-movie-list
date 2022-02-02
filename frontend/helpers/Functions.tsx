@@ -1,4 +1,6 @@
 import {PostRequest, Movie, MovieMoreInfo, StreamWebsite, StreamCountry} from './Interfaces';
+import serverURL from './URL';
+import axios from 'axios';
 
 export function requestHelper(bodyString : string ): RequestInit {
     return {
@@ -70,3 +72,4 @@ export function noStreamingSites(imdbID : string): StreamWebsite[] {
         ],
     }]
 }
+

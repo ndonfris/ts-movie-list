@@ -3,9 +3,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import logging from './config/logging';
 import config from './config/config';
-import SearchRoute from './routes/search';
-import ShowMoreRoute from './routes/show_more';
-import StreamingOptionsRoute from './routes/streaming_options';
+import SearchRoute from './routes/searchMovie';
+import ShowMoreRoute from './routes/showMore';
+import WatchListRoute from './routes/watchList';
 
 const NAMESPACE = 'Server';
 const router = express();
@@ -45,8 +45,8 @@ router.use((req, res, next) => {
 
 /* Routes */
 router.use('/search', SearchRoute);
-router.use('/show_more', ShowMoreRoute);
-router.use('/streaming', StreamingOptionsRoute);
+router.use('/movie', ShowMoreRoute);
+router.use('/watch_list', WatchListRoute);
 /* router.use('/browse', BrowseRoute); */
 
 /* Error Handling */

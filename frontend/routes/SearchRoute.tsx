@@ -25,7 +25,7 @@ export default function SearchRoute() {
             body: query,
         });
         try {
-            const response = await fetch(serverURL+"/search", reqData);
+            const response = await fetch(serverURL+"/search/title", reqData);
             const body = await response.json();
             console.log(body.Search);
             setMovieResults(body.Search);

@@ -49,7 +49,7 @@ const PopupLeft = ({moreInfo}: Props) => {
     const ShowAvailableSites = async () : Promise<void> => {
         let reqData = requestHelper(moreInfo.imdbID);
         try {
-            const response = await fetch(serverURL + '/streaming', reqData);
+            const response = await fetch(serverURL + '/movie/streaming', reqData);
             const obj = await response.json();
             setAvailibleSites(obj);
         } catch (e) {
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         top: -20,
     },
     topContainer: {
-        top: -50,
+        top: 100,
         minHeight: 200,
     },
     refresh: {
@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
         justifyContent: "space-evenly",
     },
     streamingContainer: {
-        paddingTop: 20,
     },
     iconContainer: {
         width: 100,

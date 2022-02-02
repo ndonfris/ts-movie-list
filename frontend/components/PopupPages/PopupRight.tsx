@@ -1,9 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, Pressable, View, Image, TouchableOpacity } from "react-native";
+import {StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import {MovieMoreInfo} from '../../helpers/Interfaces';
-import {AntDesign, Octicons} from '@expo/vector-icons';
-
-
 
 interface Props {
     moreInfo: MovieMoreInfo;
@@ -25,6 +22,7 @@ const PopupRight = ({moreInfo}: Props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop: 20,
     },
     text: {
         height: 30,

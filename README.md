@@ -3,7 +3,6 @@
 # ios application written entirely in typescript using react-native/expo/nodemon
 
 ## Next Goals
-* add stuff
 * add database
 * add popupleft feature for -> find similar movies (rapid api has free imdb-api with this feature)
 * [this is the 100% free api to implement](https://rapidapi.com/SAdrian/api/data-imdb1/)

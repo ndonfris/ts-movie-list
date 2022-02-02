@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { BottomNavigation } from 'react-native-paper';
 import SearchRoute from './routes/SearchRoute';
 import BrowseRoute from './routes/BrowseRoute';
+import SavedRoute from './routes/SavedRoute';
 
-const SavedRoute = () => <View style={styles.container}><Text style={styles.innerContainer}>Content</Text></View>; 
 
 // const ControllerRoute = () => <View style={styles.container}><Text style={styles.innerContainer}>Controller</Text></View>;
 

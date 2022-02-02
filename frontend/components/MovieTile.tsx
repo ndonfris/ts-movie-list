@@ -24,8 +24,9 @@ const MovieTile = ({movie}: Props) => {
             body: movie.imdbID,
         });
         try {
-            const response = await fetch(serverURL + '/show_more', reqData);
+            const response = await fetch(serverURL + '/movie/moreInfo', reqData);
             const obj = await response.json();
+            console.log(obj);
             setMoreInfo(obj);
         } catch (e) {
             setMoreInfo(failedMovieMoreInfo(movie));
