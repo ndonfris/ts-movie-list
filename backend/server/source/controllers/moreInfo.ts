@@ -1,8 +1,7 @@
 
 import { NextFunction, Request, Response } from 'express';
 import logging from '../config/logging';
-import {MovieMoreInfo} from '../interfaces/Interfaces';
-import {StreamWebsite} from '../interfaces/Interfaces';
+import {MovieMoreInfo, StreamWebsite} from '../helpers/Interfaces';
 
 
 const NAMESPACE = 'More Info';

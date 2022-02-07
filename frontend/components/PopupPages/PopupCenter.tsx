@@ -4,7 +4,7 @@
  * Created:     01/31/22
  */
 import React from 'react';
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import OpenLinks from '../OpenLinks';
 import ReviewList from '../ReviewList';
 import {MovieMoreInfo} from '../../helpers/Interfaces';
@@ -69,7 +69,9 @@ const PopupCenter = ({moreInfo}: Props) => {
             </View>
             <View style={styles.middleWrapper}>
                 <Text style={styles.mediumTitle}>Plot: </Text>
-                <Text style={styles.plot}>{moreInfo.Plot}</Text>
+                <ScrollView style={styles.scroll} fadingEdgeLength={1}>
+                    <Text style={styles.plot}>{moreInfo.Plot}</Text>
+                </ScrollView>
                 <ReviewList moreInfo={moreInfo} />
             </View>
             <View style={styles.bottomWrapper} >
@@ -88,6 +90,9 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "bold",
         paddingBottom: 5,
+    },
+    scroll: {
+        maxHeight: 125,
     },
     smallText: {
         fontSize: 10,
@@ -140,7 +145,7 @@ const styles = StyleSheet.create({
     },
     bottomWrapper: {
         alignSelf: "center",
-        bottom: 0,
+        bottom: 15,
     }
 });
 

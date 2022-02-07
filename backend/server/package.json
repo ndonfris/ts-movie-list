@@ -28,6 +28,7 @@
         "imdb-light": "^1.1.5",
         "imdb-top250-node": "^1.0.1",
         "localtunnel": "^2.0.2",
+        "mongoose": "^6.2.0",
         "movie-script-scraper": "^0.0.7",
         "mysql": "^2.18.1",
         "name-to-imdb": "^3.0.2",

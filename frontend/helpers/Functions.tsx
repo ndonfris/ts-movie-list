@@ -57,6 +57,29 @@ export function createRequest(request: PostRequest): RequestInit {
     }
 }
 
+/**
+ * createRequestBody(PostRequest) - Returns part of a Request with all of the 
+ *                                  fields pre-defined and the body matching the
+ *                                  key value pair.
+ *
+ * @param {string} key - the key for the bodyString
+ * @param {string} value -  the value for the bodyString
+ * @returns {RequestInit} - defines a request to send to a backend URI,
+ *                          with this request having the request method, headers, mode
+ *                          defined. Also sets the body set to the key "title"
+ */
+export function createGetRequestBody(keyString: string, valueString: string): RequestInit {
+    return {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({"Genre": valueString}),
+    }
+}
+
 
 /**
  * This function is called when a movie is expected to show more info, but 

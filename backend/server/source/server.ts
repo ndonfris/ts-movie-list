@@ -6,6 +6,7 @@ import config from './config/config';
 import SearchRoute from './routes/searchMovie';
 import ShowMoreRoute from './routes/showMore';
 import WatchListRoute from './routes/watchList';
+import BrowseRoute from './routes/browse';
 
 const NAMESPACE = 'Server';
 const router = express();
@@ -26,8 +27,8 @@ router.use((req, res, next) => {
 });
 /* Parse the request */
 /* gets rid of using JSON.parse() or JSON.stringify() */
-router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
 
 /* Rules of the API */
 /* eventually change {Access-Control-Allow-Origin', '*'}  to predefined ip's*/
@@ -47,7 +48,7 @@ router.use((req, res, next) => {
 router.use('/search', SearchRoute);
 router.use('/movie', ShowMoreRoute);
 router.use('/watch_list', WatchListRoute);
-/* router.use('/browse', BrowseRoute); */
+router.use('/browse', BrowseRoute);
 
 /* Error Handling */
 router.use((req, res, next) => {

@@ -77,11 +77,10 @@ const Popup = ({moreInfo, updateModal, modalVisible}: Props) => {
     return (
             <View style={styles.container}>
             <GestureRecognizer
-                onSwipeUp={() => updateModal(!modalVisible)}
                 onSwipeDown={() => updateModal(!modalVisible)}
                 config={{
-                    velocityThreshold: 0.2,
-                    directionalOffsetThreshold: 100
+                    velocityThreshold: 0.3,
+                    directionalOffsetThreshold: 300
                 }}>
                 <Modal
                     animationType="slide"
@@ -153,14 +152,15 @@ const Popup = ({moreInfo, updateModal, modalVisible}: Props) => {
 const styles = StyleSheet.create({
     centeredView: {
         flex: 1,
+        marginTop: 30,
         justifyContent: "center",
         alignItems: "center",
     },
     modalView: {
-        backgroundColor: "#88c0d0",
+        backgroundColor: "#292d3e",
         borderRadius: 20,
         width: "90%",
-        height: "70%",
+        height: "75%",
         shadowColor: "#fff",
         shadowOffset: {
             width: 0,
@@ -171,6 +171,7 @@ const styles = StyleSheet.create({
         elevation: 5
     },
     footer: {
+        color: "#fff",
         flexDirection: "row",
         alignSelf: "center",
         justifyContent: "space-evenly",
@@ -179,6 +180,7 @@ const styles = StyleSheet.create({
         bottom: 10,
     },
     button: {
+        color: "#fff",
         borderRadius: 30,
         padding: 10,
         backgroundColor: "transparent",

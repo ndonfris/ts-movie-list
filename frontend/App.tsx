@@ -12,9 +12,9 @@ const App = () => {
     const [index, setIndex] = React.useState(0);
 
     const [routes] = React.useState([
-        { key: 'search', title: 'Search', icon: 'movie-search', color: "black" },
-        { key: 'saved', title: 'Saved', icon: 'content-save-edit-outline', color: "#292929" },
-        { key: 'browse', title: 'Browse', icon: 'format-list-numbered', color: "#a2a2a2" },
+        { key: 'search', title: 'Search', icon: 'movie-search', color: "#292d3e" },
+        {key: 'saved', title: 'Saved', icon: 'content-save-edit-outline', color: "#292d3e"},
+        {key: 'browse', title: 'Browse', icon: 'format-list-numbered', color: "#292d3e"},
     ]);
 
     const renderScene = BottomNavigation.SceneMap({

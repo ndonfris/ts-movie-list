@@ -1,53 +1,142 @@
-/* 
-INSERT INTO movies ( Title, Year, Rated, Released, Runtime, Genre, Director, Writer,
-                    Actors, Plot, Language, Country, Awards, Poster, Ratings, Metascore,
-                    imdbRating, imdbVotes, imdbID, Type, DVD, BoxOffice, Production, Website )
 
-VALUES ("${movie.Title}", "${movie.Year}", "${movie.Rated}", "${movie.Released}", "${movie.Runtime}", "${movie.Genre}", "${movie.Director}", "${movie.Writer}",
-"${movie.Actors}", "${movie.Plot}", "${movie.Language}", "${movie.Country}", "${movie.Awards}", "${movie.Poster}", "${movie.Ratings}", "${movie.Metascore}",
-"${movie.imdbRating}", "${movie.imdbVotes}", "${movie.imdbID}", "${movie.Type}", "${movie.DVD}", "${movie.BoxOffice}", "${movie.Production}", "${movie.Website}" )
- */
-import { NextFunction, Request, Response } from 'express';
-import logging from '../config/logging';
-import { Movie, MovieMoreInfo } from '../interfaces/Interfaces';
+import toMovie from '../helpers/Functions';
+import {MovieMoreInfo, Movie, MoreInfo} from '../helpers/Interfaces';
+import { Request, Response } from 'express';
+import { MongoClient, WithId } from 'mongodb';
 
-const NAMESPACE = 'Movies';
+const url = 'mongodb://localhost:27017';
+const client = new MongoClient(url);
 
+const dbName = 'movies';
 
-const createMovie = async (req: Request, res: Response) => {
-    logging.info(NAMESPACE, 'Inserting movies');
-
-    const db = require('better-sqlite3')('/home/ndonfris/Projects/frontends/react-projects/typescript/ios/ts-movie-list/backend/server/source/controllers/movies.db');
-
-    let movie: Movie = req.body;
-    const query: string = `INSERT INTO savedMovies (poster, title, type, year, imdbId) VALUES ('${movie.Poster}', '${movie.Title}', '${movie.Type}', '${movie.Year}', '${movie.imdbID}');`;
-    const result = db.prepare(query).run();
-    logging.info(NAMESPACE, 'returned: ', result);
-    return res.status(200).json(result);
+const getAllMoviesFull = async (req: Request, res: Response) => {
+    try {
+        await client.connect();
+        console.log('Connected to mongoDB successfully');
+        const db = client.db(dbName);
+        const collection = db.collection('watchList');
+        const findResult = await collection.find({}).toArray();
+        console.log('Found documents =>', findResult);
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(findResult);
+        client.close();
+    } catch (error) {
+        console.log(error);
+    }
 };
 
-const getAllMovies = (req: Request, res: Response) => {
-    const db = require('better-sqlite3')('/home/ndonfris/Projects/frontends/react-projects/typescript/ios/ts-movie-list/backend/server/source/controllers/movies.db');
-    logging.info(NAMESPACE, 'Getting all movies.');
-    let query = 'SELECT * FROM savedMovies';
-    const result : Movie[] = db.prepare(query).all();
-    logging.info(NAMESPACE, 'returned: ', result);
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200);
-    res.send(result);
-    return res;
+
+const getAllMoviesLess = async (req: Request, res: Response) => {
+    try {
+        await client.connect();
+        console.log('Connected to mongoDB successfully');
+        const db = client.db(dbName);
+        const collection = db.collection('watchList');
+        const findResult: WithId<MovieMoreInfo>[] = await collection.find({}).toArray();
+        const results = [] as Movie[];
+        for (var i in findResult) {
+            var mv: MovieMoreInfo = findResult[i];
+            const movie: Movie = toMovie(mv);
+            results.push(movie);
+        }
+        console.log('Found documents =>', results);
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(results);
+        client.close();
+    } catch (error) {
+        console.log(error);
+    }
+
 };
+
+
+const saveMovie = async (req: Request, res: Response) => {
+    const toSave = JSON.parse(req.body.title);
+    const filter = {
+        imdbID: toSave.Title,
+        imdbRating: toSave.imdbRating,
+        imdbVotes: toSave.imdbVotes,
+        Language: toSave.Language,
+        Metascore: toSave.Metascore,
+        Plot: toSave.Plot,
+        Poster: toSave.Poster,
+        Production: toSave.Production,
+        Rated: toSave.Rated,
+        Ratings: toSave.Ratings,
+        Released: toSave.Released,
+        Response: toSave.Response,
+        Runtime: toSave.Runtime,
+        Title: toSave.Title,
+        Type: toSave.Type,
+        Website: toSave.Website,
+        Writer: toSave.Writer,
+        Year: toSave.Year,
+        Genre: toSave.Genre,
+        DVD: toSave.DVD,
+        Director: toSave.Director,
+        Country: toSave.Country,
+        BoxOffice: toSave.BoxOffice,
+        Awards: toSave.Awards,
+        Actors: toSave.Actors,
+    };
+    try {
+        await client.connect();
+        console.log(toSave);
+        console.log('Connected to mongoDB successfully');
+        console.log(filter);
+        const db = client.db(dbName);
+        const collection = db.collection('watchList');
+        const storeResult = await collection.insertOne(filter);
+        console.log('Stored =>', storeResult);
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(storeResult);
+        client.close();
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const getInfo = async (req: Request, res: Response) => {
+    const id : string= req?.params?.id;
+    const filter = {
+        'imdbID': id,
+    };
+    try {
+        await client.connect();
+        console.log('Connected to mongoDB successfully');
+        const db = client.db(dbName);
+        const collection = db.collection('watchList');
+        const result = await collection.findOne(filter);
+        result 
+            ? res.status(201).send(`Successfully removed movie with imdbID=${id} from your watchlist`)
+            : res.status(500).send(`Failed to remove imdbId ${id}`)
+        client.close();
+    } catch (error) {
+        console.log(error);
+    }
+};                
 
 const removeMovie = async (req: Request, res: Response) => {
-    logging.info(NAMESPACE, 'Inserting movies');
+    const id : string= req?.params?.id;
+    const filter = {
+        'imdbID': id,
+    };
+    try {
+        await client.connect();
+        console.log('Connected to mongoDB successfully');
 
-    const db = require('better-sqlite3')('/home/ndonfris/Projects/frontends/react-projects/typescript/ios/ts-movie-list/backend/server/source/controllers/movies.db');
-    const remove_id: string = req.body.title;
+        const db = client.db(dbName);
+        const collection = db.collection('watchList');
+        const result = await collection.findOneAndDelete(filter);
+        result 
+            ? res.status(201).send(`Successfully removed movie with imdbID=${id} from your watchlist`)
+            : res.status(500).send(`Failed to remove imdbId ${id}`)
+        client.close();
+    } catch (error) {
+        console.log(error);
+    }
+};                
 
-    const query: string = `DELETE FROM savedMovies WHERE imdbID = '${remove_id}';`;
-    const result = db.prepare(query).run();
-    logging.info(NAMESPACE, 'returned: ', result);
-    return res.status(200).json(result);
-}
 
-export default { createMovie, getAllMovies, removeMovie };
+
+export default {getAllMoviesFull, getAllMoviesLess, saveMovie, removeMovie, getInfo};

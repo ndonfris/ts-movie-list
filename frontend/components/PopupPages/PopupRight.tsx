@@ -5,7 +5,9 @@
  */
 import React from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {createRequest} from '../../helpers/Functions';
 import {MovieMoreInfo} from '../../helpers/Interfaces';
+import serverURL from '../../helpers/URL';
 
 /* the MovieMoreInfo prop containing the info pertaining to a Movie  */
 interface Props {
@@ -24,13 +26,52 @@ interface Props {
  * @returns {JSX.Element} - The right page inside the Popup component list.
  */
 const PopupRight = ({moreInfo}: Props) => {
+
+    /**
+     * @async Function that is called when a movieTile is selected. 
+     *        Returns a unresolved promise. Sets the moreInfo on successful
+     *        api call.
+     *        
+     * @returns {Promise<void>} - instead of returning the objects, it sets them
+     *                            and makes use of global variables.
+     */
+    const SaveMovie = async (): Promise<void> => {
+        const reqData = createRequest({
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                accept: 'application/json',
+                contentType: 'application/json'
+            },
+            body: JSON.stringify(moreInfo),
+        });
+        try {
+            const response = await fetch(serverURL + '/watch_list/add', reqData);
+            const obj = await response.json();
+            console.log(obj);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+        
+    const reqDataRemove = {
+        method: 'DELETE',
+        mode: 'no-cors',
+        headers: {
+            accept: 'application/json',
+            contentType: 'application/json'
+        }
+    } as RequestInit;
+
+
     return (
         <View style={styles.container}>
             <View style={styles.imageContainer}>
                 <Image source={{uri: moreInfo.Poster}} style={styles.image} />
             </View>
             <View style={styles.buttonWrapper}>
-                <TouchableOpacity style={styles.textWrapper}>
+                <TouchableOpacity style={styles.textWrapper} onPress={() => SaveMovie()}>
                     <Text style={styles.text}>Add to watch-list</Text>
                 </TouchableOpacity>
             </View> 
@@ -46,7 +87,7 @@ const styles = StyleSheet.create({
     },
     text: {
         height: 40,
-        width: 260,
+        width: 280,
         textAlign: "center",
         fontWeight: "bold",
         color: '#fff',
@@ -56,7 +97,7 @@ const styles = StyleSheet.create({
         textAlignVertical: "center",
         height: 35,
         width: 280,
-        backgroundColor: '#595959',
+        backgroundColor: '#000',
         borderRadius: 20,
     },
     buttonWrapper: {

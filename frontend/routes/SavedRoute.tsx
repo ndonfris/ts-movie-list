@@ -24,11 +24,13 @@ import serverURL from "../helpers/URL";
  * @returns {JSX.Element} Saved Movies Page rendered by clicking the bottom navigation bar
  */
 const SavedRoute = () => {
+
+
     const [movies, setMovies] = useState<Movie[]>([] as Movie[]);
     const [refreshing, setRefreshing] = useState(true);
      
     useEffect(() => {
-        fetch(serverURL + "/watch_list/get").then(function (response) {
+        fetch(serverURL + "/watch_list/get/less").then(function (response) {
             return response.json();
         }).then(function (parsedJson) {
             setMovies(parsedJson as Movie[]);
@@ -53,7 +55,7 @@ const SavedRoute = () => {
                 style={styles.results}
                 renderItem={renderItem}
                 keyExtractor={(item, index) => index}
-                numColumns={3}
+                numColumns={2}
                 refreshing={refreshing}
                 onRefresh={() => {setRefreshing(!refreshing)}}
             />
@@ -64,10 +66,13 @@ const SavedRoute = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "#0D1117",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     results: {
+        height: "100%",
+        backgroundColor: "#0D1117",
         paddingTop: 250,
     }
 

@@ -74,6 +74,7 @@ export default function SearchRoute() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "#0D1117",
     },
     results: {
         paddingTop: 0,

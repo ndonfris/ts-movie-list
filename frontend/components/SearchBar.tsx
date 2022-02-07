@@ -38,7 +38,7 @@ const SearchBar: FC<Props> = ({placeholder, query, updateQuery, searchFunction})
                     style={styles.text}
                     value={query}
                     placeholder={placeholder}
-                    placeholderTextColor={"white"}
+                    placeholderTextColor={"#bfc7d5"}
                     returnKeyType={"search"}
                     onChangeText={updateQuery}
                     onSubmitEditing={searchFunction}
@@ -53,14 +53,14 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: '15%',
         alignItems: 'center',
-        color: "#fff",
+        color: "#bfc7d5",
     },
     bar: {
         justifyContent: "space-around",
         width: 325,
         height: 50,
         textAlign: 'center',
-        backgroundColor: 'black',
+        backgroundColor: "#292d3e",
         borderRadius: 20,
         paddingLeft: 20,
         paddingRight: 20,
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
     text: {
-        color: "#fff",
+        color: "#bfc7d5",
     }
 });
 

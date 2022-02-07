@@ -6,7 +6,7 @@
 import React, {useState} from 'react';
 import {Keyboard, View, StyleSheet, SafeAreaView} from 'react-native';
 import MovieList from '../components/MovieList';
-import {createRequest} from '../helpers/Functions';
+import {createGetRequestBody } from '../helpers/Functions';
 import {Movie} from '../helpers/Interfaces';
 import serverURL from '../helpers/URL';
 import Movies from '../helpers/Top250Movies.json';
@@ -56,22 +56,14 @@ export default function BrowseRoute() {
     /* the results found from the query function */
     const [movieResults, setMovieResults] = useState<Movie[]>(Movies);
 
-    const searchQuery = async () : Promise<Movie[]> => {
+    const searchGenre = async () : Promise<Movie[]> => {
         Keyboard.dismiss();
-        let reqData = createRequest({
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                accept: 'application/json',
-                contentType: 'application/json'
-            },
-            body: query,
-        });
+        let reqData = createGetRequestBody("genre", value);
         try {
-            const response = await fetch(serverURL+"/search", reqData);
+            const response = await fetch(serverURL+"/browse/genre", reqData);
             const body = await response.json();
-            console.log(body.Search);
-            setMovieResults(body.Search);
+            console.log(body);
+            setMovieResults(body);
             return body;
         } catch (e) {
             console.log(e);
@@ -89,9 +81,11 @@ export default function BrowseRoute() {
                     setOpen={setOpen}
                     setValue={setValue}
                     setItems={setItems}
+                    onSelectItem={() => searchGenre()}
                     placeholder="IMDb Top 250"
+                    theme="DARK"
                     style={styles.topBar}
-                    containerStyle={styles.labelStyle}
+                    containerStyle={styles.containerStyle}
                     textStyle={styles.text}
                     labelStyle={styles.labelStyle}
                     labelProps={{
@@ -112,6 +106,7 @@ export default function BrowseRoute() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "#0D1117",
     },
     topContainer: {
         marginTop: '15%',
@@ -126,6 +121,9 @@ const styles = StyleSheet.create({
     text: {
         flexGrow: 1,
         textAlignVertical: 'center',
+    },
+    containerStyle: {
+        width: 325,
     },
     labelStyle: {
         width: 325,
