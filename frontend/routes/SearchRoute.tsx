@@ -1,3 +1,8 @@
+/**
+ * File:        SearchRoute.tsx
+ * Author:      Nick Donfris
+ * Created:     01/24/22
+ */
 import React, {useState} from 'react';
 import {Keyboard, View, StyleSheet} from 'react-native';
 import SearchBar from '../components/SearchBar';
@@ -7,12 +12,26 @@ import {Movie} from '../helpers/Interfaces';
 import serverURL from '../helpers/URL';
 import Movies from '../helpers/Top250Movies.json';
 
+/**
+ * Creates the SearchRoute page. Imports the static file Top250Movies.json, which 
+ * is just used for pre-query info.
+ *
+ * @returns {JSX.Element} Search Page rendered by clicking on the bottom bar.
+ */
 export default function SearchRoute() {
+    /* the text that is inputed to the SearchBar component */
     const [query, setQuery] = useState('');
     
+    /* the list of movies currently rendered on screen as results */
     const [movieResults, setMovieResults] = useState<Movie[]>(Movies);
 
-
+    /**
+     * uses the query, changed in the SearchBar component.
+     *
+     * @async
+     * @throws {Error} - Typically thrown if server is not connected/running
+     * @returns {Promise<Movie[]>} - Array of Movies, found from query
+     */
     const searchQuery = async () : Promise<Movie[]> => {
         Keyboard.dismiss();
         let reqData = createRequest({
@@ -36,7 +55,6 @@ export default function SearchRoute() {
         }
     };
 
-
     return (
         <View style={styles.container}>
             <SearchBar
@@ -51,7 +69,6 @@ export default function SearchRoute() {
         </View>
     )
 }
-
 
 
 const styles = StyleSheet.create({

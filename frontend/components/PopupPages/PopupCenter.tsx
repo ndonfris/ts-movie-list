@@ -1,16 +1,33 @@
+/**
+ * File:        PopupCenter.tsx
+ * Author:      Nick Donfris
+ * Created:     01/31/22
+ */
 import React from 'react';
-import {Alert, Modal, StyleSheet, Text, Pressable, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import OpenLinks from '../OpenLinks';
 import ReviewList from '../ReviewList';
 import {MovieMoreInfo} from '../../helpers/Interfaces';
-import {AntDesign, Octicons} from '@expo/vector-icons';
 
 
+/* strings used to help display the backend api data */
 interface InLineTextProps {
     titleText: string;
     infoText: string;
 }
 
+/**
+ * This is a functional component that just allows significant, decomposition
+ * in the PopupCenter component. It styles text to have a bold title, and 
+ * have the corresponding infomation vertically aligned next to it.
+ * 
+ *
+ * @param {string} titleText - the string of the title
+ * @param {string} infoText - the string for the api result matching the title
+ *
+ * @returns {JSX.Element} - Vertically aligned component of different sized text
+ *                          to render most of the movie information.
+ */
 function InLineText({titleText, infoText}: InLineTextProps) {
     return (
         <View style={styles.textInline}>
@@ -20,10 +37,20 @@ function InLineText({titleText, infoText}: InLineTextProps) {
     )
 }
 
+/* the props for the PopupCenter component */
 interface Props {
     moreInfo: MovieMoreInfo
 };
 
+/**
+ * PopupCenter is the first inner navigation screen when the Popup modal is rendered 
+ * and contains the most information about a Movie
+ *
+ * @param {MovieMoreInfo} moreInfo - the resolved callback from the backend when an
+ *                                   imdbID is searched.
+ *
+ * @returns {JSX.Element} - The middle page inside the Popup component list.
+ */
 const PopupCenter = ({moreInfo}: Props) => {
     return (
         <View style={styles.container}>
@@ -76,6 +103,12 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: "bold",
     },
+    imageContainer: {
+        borderRadius: 20,
+        top: 15,
+        left: 10,
+        position: 'absolute',
+    },
     image: {
         width: 100,
         height: 200,
@@ -93,12 +126,6 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         paddingBottom: 5, 
     },
-    imageContainer: {
-        borderRadius: 20,
-        top: 15,
-        left: 10,
-        position: 'absolute',
-    },
     topWrapper: {
         flexDirection: "column",
         marginLeft: 118,
@@ -114,7 +141,7 @@ const styles = StyleSheet.create({
     bottomWrapper: {
         alignSelf: "center",
         bottom: 0,
-    },
+    }
 });
 
 export default PopupCenter;

@@ -6,7 +6,6 @@ import PopupRight from "./PopupPages/PopupRight";
 import {MovieMoreInfo} from '../helpers/Interfaces';
 import {AntDesign} from '@expo/vector-icons';
 
-
 interface Props {
     moreInfo: MovieMoreInfo;
     updateModal: (modalVisible: boolean) => void;
@@ -18,6 +17,14 @@ interface CloseProps {
     modalVisible: boolean;
 }
 
+/**
+ * Creates <CloseButton 
+ *
+ * @param {CloseProps} CloseProps - props needed for this button.
+ * @param {function} CloseProps.updateModal - function that updates modalVisible prop on press
+ * @param {boolean} CloseProps.modalVisible - boolean that is altered on Press
+ * @returns {JSX.element} - close button component
+ */
 function CloseButton({updateModal, modalVisible}: CloseProps ) {
     return (
         <Pressable

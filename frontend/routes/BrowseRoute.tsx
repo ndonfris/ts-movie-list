@@ -1,4 +1,9 @@
-import React, { useState} from 'react';
+/**
+ * File:        BrowseRoute.tsx
+ * Author:      Nick Donfris
+ * Created:     01/24/22
+ */
+import React, {useState} from 'react';
 import {Keyboard, View, StyleSheet, SafeAreaView} from 'react-native';
 import MovieList from '../components/MovieList';
 import {createRequest} from '../helpers/Functions';
@@ -7,10 +12,25 @@ import serverURL from '../helpers/URL';
 import Movies from '../helpers/Top250Movies.json';
 import DropDownPicker from 'react-native-dropdown-picker';
 
-export default function SearchRoute() {
+/**
+ * Creates a SearchRoute page. Imports the static file Top250Moives.json, which
+ * contains the necessary data to render MovieItem's of type Movie. 
+ *
+ * TODO: implement catagoryQuery, Remove searchQuery
+ *
+ * @returns {JSX.Element} - Browse Page rendered by clicking on the bottom bar.
+ */
+export default function BrowseRoute() {
+    /* TODO: maybe remove this, or store the item choosen from items */
     const [query, setQuery] = useState('');
+
+    /* prop that determines if the catagory dropdown is opened  */
     const [open, setOpen] = useState(false);
+
+    /* individual value of the selected in the items */
     const [value, setValue] = useState(null);
+
+    /* the Movie genres to search by */
     const [items, setItems] = useState([
         {label: 'Action', value: 'Action'},
         {label: 'Adventure', value: 'Adventure'},
@@ -33,6 +53,7 @@ export default function SearchRoute() {
         {label: 'Western', value: 'Western'}
     ]);
     
+    /* the results found from the query function */
     const [movieResults, setMovieResults] = useState<Movie[]>(Movies);
 
     const searchQuery = async () : Promise<Movie[]> => {
@@ -57,7 +78,6 @@ export default function SearchRoute() {
             throw new Error(e);
         }
     };
-
 
     return (
         <View style={styles.container}>
@@ -88,8 +108,6 @@ export default function SearchRoute() {
         </View>
     )
 }
-
-
 
 const styles = StyleSheet.create({
     container: {

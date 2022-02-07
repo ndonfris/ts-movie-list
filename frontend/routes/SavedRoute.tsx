@@ -1,18 +1,28 @@
+/**
+ * File:        SavedRoute.tsx
+ * Author:      Nick Donfris
+ * Created:     01/24/22
+ */
 import React, { useEffect, useState } from "react";
 import {Movie} from '../helpers/Interfaces';
 import MovieTile from '../components/MovieTile';
 import {
-    FlatList,
+  FlatList,
   ListRenderItem,
   StyleSheet,
-  View,
-  Text,
   SafeAreaView
 } from "react-native";
 import serverURL from "../helpers/URL";
 
-
-
+/**
+ * Creates the SavedRoute page. Calls mongoDB.
+ *
+ * TODO: SavedRoute 
+ * TODO: mongoDB 
+ * TODO: apiCalls to mongoDB 
+ *
+ * @returns {JSX.Element} Saved Movies Page rendered by clicking the bottom navigation bar
+ */
 const SavedRoute = () => {
     const [movies, setMovies] = useState<Movie[]>([] as Movie[]);
     const [refreshing, setRefreshing] = useState(true);
@@ -64,4 +74,3 @@ const styles = StyleSheet.create({
 });
 
 export default SavedRoute;
-

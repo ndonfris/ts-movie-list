@@ -1,3 +1,8 @@
+/**
+ * File:        ReviewList.tsx
+ * Author:      Nick Donfris
+ * Created:     01/29/22
+ */
 import React from 'react';
 import {StyleSheet, Text, View, Pressable, Linking} from "react-native";
 import {MovieMoreInfo, Rating} from "../helpers/Interfaces";
@@ -7,15 +12,22 @@ import MetacriticLogo from '../assets/MetacriticLogo.svg';
 import ImdbIcon from '../assets/ImdbIcon.svg';
 import {MaterialIcons} from '@expo/vector-icons';
 
-interface Props {
-    moreInfo: MovieMoreInfo;
-};
 
+/* Props used in each of the following functional components */
 interface ReviewProps {
     Ratings: Rating[];
     Title?: string;
 };
 
+/**
+ * Functional component that renders if a review score is found.
+ * This component is a pressable icon, that opens imdb in Default Browser
+ *
+ * @param {Rating[]} Ratings - the array of all found ratings found on for a MovieItem
+ * @param {Title} Title - the title ot search for in the IMDB URL
+ *
+ * @returns {JSX.Element} - IMDB icon that is pressable 
+ */
 function IMDB({Ratings, Title}: ReviewProps) {
     const review = Ratings.find(rating => rating.Source as Rating === "Internet Movie Database")?.Value;
     if (review == null) {
@@ -31,6 +43,17 @@ function IMDB({Ratings, Title}: ReviewProps) {
     }
 };
 
+/**
+ * Functional component that renders if a review score is found that has the
+ * Rating.Source field matching Rotten Tomatoes. This component is a pressable
+ * icon.
+ *
+ * @param {Rating[]} Ratings - the array of all ratings found in a MovieItem
+ * @param {string} Title - the string of the title, to search for on rotten tomatoes
+ *                          URL
+ *
+ * @returns {JSX.Element} - RottenTomatoes icon that is pressable
+ */
 function RottenTomatoes({Ratings, Title}: ReviewProps ){
     let searchURL = "https://www.rottentomatoes.com/search?search="+Title;
     let review = Ratings.find(rating => rating.Source as Rating== "Rotten Tomatoes")?.Value;
@@ -46,6 +69,17 @@ function RottenTomatoes({Ratings, Title}: ReviewProps ){
     } 
 };
 
+/**
+ * Functional component that renders if a review score is found that has the
+ * Rating.Source field matching Metacritic. This component is a pressable
+ * icon.
+ *
+ * @param {Rating[]} .Ratings - the array of all ratings found in a MovieItem
+ * @param {string} .Title - the string of the title, to search for on Metacritic
+ *                          website.
+ *
+ * @returns {JSX.Element} - MetaCritic icon that is pressable
+ */
 function MetaCritic({Ratings, Title}: ReviewProps) {
     let searchURL = "https://www.metacritic.com/search/all/"+Title+"/results";
     let review = Ratings.find(rating => rating.Source as Rating == "Metacritic")?.Value;
@@ -61,6 +95,17 @@ function MetaCritic({Ratings, Title}: ReviewProps) {
     }
 }
 
+/**
+ * Functional component that renders the default Review not found icon. Like all of the
+ * functional components called from RevewList, this may return an empty view (nothing).
+ *
+ * @param {Rating[]} Ratings - the array results found in the backend. The backend
+ *                                checks the reviews it finds and if this JSON array is
+ *                                empty, it will insert a default Rating interface with the
+ *                                the Rating.Source field equal to "N/A".
+ *
+ * @returns {JSX.Element} - NoneFound icon that is not pressable
+ */
 function NoneFound({Ratings}: ReviewProps) {
     const review = Ratings.filter(({ Source }) => Source === "N/a");
     console.log(review);
@@ -76,6 +121,21 @@ function NoneFound({Ratings}: ReviewProps) {
     }
 }
 
+/* Contains all the info for a popup, since title is needed and Ratings are needed */
+interface Props {
+    moreInfo: MovieMoreInfo;
+};
+
+/**
+ * ReviewList of pressable icons, and the score the rated a movie. The list of ratings
+ * might contain 0-3 reviews (while it can't actually contain zero ratings, backend inserts
+ * a value to catch no reviews found), so each functional component called above must handle
+ * not finding it's correlating rating.
+ *
+ * @param {MovieMoreInfo} .moreInfo - All information found by backend for a movie 
+ * @returns {JSX.Element} - ReviewList of pressable icons correlating to:
+ *                          [<IMDb/>, <RottenTomatoes/>, <MetaCritic/>] || [<NoneFound/>]
+ */
 const ReviewList = ({moreInfo}: Props) => {
     return (
         <View style={styles.container}>

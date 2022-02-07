@@ -1,7 +1,13 @@
-import React, {useState, useEffect, FC} from 'react';
-import {Keyboard, View, StyleSheet, TextInput} from 'react-native';
+/**
+ * File:        SearchBar.tsx
+ * Author:      Nick Donfris
+ * Created:     01/24/22
+ */
+import React, {FC} from 'react';
+import {View, StyleSheet, TextInput} from 'react-native';
 import {Movie} from '../helpers/Interfaces';
 
+/* props necessary for the searchbar  */
 interface Props {
     placeholder?: string;
     searchFunction: () =>  Promise<Movie[]>;
@@ -10,6 +16,20 @@ interface Props {
 }
 
 
+/**
+ * SearchBar component is passed many props, from it's parent component.
+ * The parent component defines these props, which is used to decouple  
+ * it's states.
+ *
+ * @param {string} placeholder - string to display when there is no input
+ * @param {string} query - the value that is update when the user inserts input
+ * @param {function} updateQuery - the function that stores the text inputed
+ *                                 by the user, to the query 
+ * @param {function} searchFunction - when the submit button is pressed, 
+ *                                    this function is called.
+ *
+ * @returns {JSX.Element} - the horizontally centered SearchBar component 
+ */
 const SearchBar: FC<Props> = ({placeholder, query, updateQuery, searchFunction}) => {
     return (
         <View style={styles.container}>

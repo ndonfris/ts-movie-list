@@ -1,24 +1,34 @@
-import React, {useRef} from 'react';
-import {Alert, Modal, StyleSheet, useWindowDimensions, Pressable, View, Animated, ScrollView, SafeAreaView, TouchableOpacity} from "react-native";
+/**
+ * File:        Popup.tsx
+ * Author:      Nick Donfris
+ * Created:     01/27/22
+ */
+import React, { useRef } from 'react';
+import { Modal, StyleSheet, useWindowDimensions, Pressable, View, Animated, ScrollView, SafeAreaView } from "react-native";
 import GestureRecognizer from 'react-native-swipe-gestures';
 import PopupLeft from "./PopupPages/PopupLeft";
 import PopupCenter from "./PopupPages/PopupCenter";
 import PopupRight from "./PopupPages/PopupRight";
-import {MovieMoreInfo} from '../helpers/Interfaces';
-import {AntDesign} from '@expo/vector-icons';
+import { MovieMoreInfo } from '../helpers/Interfaces';
+import { AntDesign } from '@expo/vector-icons';
 
-
-interface Props {
-    moreInfo: MovieMoreInfo;
-    modalVisible: boolean;
-    updateModal: (modalVisible: boolean) => void;
-}
-
+/* Props used in the CloseButton Functional Component */
 interface CloseProps {
     modalVisible: boolean;
     updateModal: (modalVisible: boolean) => void;
 }
 
+/**
+ * <CloseButton /> functional component that is rendered in the top right corner of
+ * the Popup. This component functions takes the modalVisible state (which must be true)
+ * and sets it to false.
+ *
+ * @param {function} updateModal - the function called updating the modalVisible state of
+ *                                  the popup.
+ * @param {boolean} modalVisible - the state of the visibility of this modal
+ *
+ * @returns {JSX.Element} - closes/removes visibility of this Popup prop
+ */
 function CloseButton({updateModal, modalVisible}: CloseProps ){
     return (
         <Pressable
@@ -30,16 +40,38 @@ function CloseButton({updateModal, modalVisible}: CloseProps ){
     );
 }
 
-/* make a function to pass the textInline into  */
+/* Props for the exported component from this file (<Popup/>) */
+interface Props {
+    moreInfo: MovieMoreInfo;
+    modalVisible: boolean;
+    updateModal: (modalVisible: boolean) => void;
+}
+
+/**
+ * information (swipe-able) shown within the inner modal 
+ *
+ * @param {MovieMoreInfo} moreInfo - the interface containing all extra information about a 
+ *                                   movie.
+ * @param {function} updateModal - no return, changes the state of the visibility of a modal
+ * @param {boolean} modalVisible - the state determining if this Popup is showing. This
+ *                                  so that each PopupTile can handle closing the Popup
+ *
+ * @returns {JSX.Element} - A swippeable list of <PopupTiles/>.
+ *                          These are different components in the PopupTiles Directory.
+ */
 const Popup = ({moreInfo, updateModal, modalVisible}: Props) => {
 
+    /* this is an array of functional components, where each index is used as an inner screen */
     const PopupTiles = [
         <PopupLeft moreInfo={moreInfo} />,
         <PopupCenter moreInfo={moreInfo}/>,
         <PopupRight moreInfo={moreInfo} />,
     ]
     
+    /* the X value of that is changed when the user horizontally swipes on the Popup */
     const scrollX = useRef(new Animated.Value(0)).current;
+
+    /* number that is the width of the Device screen */
     const {width: windowWidth} = useWindowDimensions();
 
     return (

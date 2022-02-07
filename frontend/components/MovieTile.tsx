@@ -1,3 +1,8 @@
+/**
+ * File:        MovieTile.tsx
+ * Author:      Nick Donfris
+ * Created:     01/24/22
+ */
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, Modal, Image, TouchableOpacity} from 'react-native';
 import {Movie, MovieMoreInfo} from '../helpers/Interfaces';
@@ -9,10 +14,27 @@ interface Props {
     movie: Movie;
 }
 
+/**
+ * A MovieTile, which is a clickable component, which can render more information about the MovieTile
+ *
+ * @param {Movie} movie - the Movie interface which contains strings that correlate to the necessary details for a movie
+ * @returns {JSX.Element} - the tile shown for a Movie, and the set of states that are coupled to rendering more information about a tile. 
+ */
 const MovieTile = ({movie}: Props) => {
+    /* the information retrieved from the api call onClick of MovieTile */
     const [moreInfo, setMoreInfo] = useState<MovieMoreInfo>({} as MovieMoreInfo);
+
+    /* boolean that determines if the moreInfo modal visible */
     const [modalVisible, setModalVisible] = useState(false);
 
+    /**
+     * @async Function that is called when a movieTile is selected. 
+     *        Returns a unresolved promise. Sets the moreInfo on successful
+     *        api call.
+     *        
+     * @returns {Promise<void>} - instead of returning the objects, it sets them
+     *                            and makes use of global variables.
+     */
     const ShowMoreInfo = async () : Promise<void> => {
         let reqData = createRequest({
             method: 'POST',
