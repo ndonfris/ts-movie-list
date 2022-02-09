@@ -101,14 +101,14 @@ __documentation__
 
 [components](./frontend/components/) used on the pages are located in ./components  
 _functional components_  
-    * component used for movie tiles -> [MovieTile.jsx](/frontend/components/MovieTile.tsx)
-    * component used for rendering the search results -> [MovieList.tsx](/frontend/components/MovieList.tsx)
-    * component used for the search bar -> [SearchBar.jsx](/frontend/components/SearchBar.tsx)
-    * component used for rendering a popup when a movie tile is pressed -> [Popup.tsx](/frontend/components/Popup.tsx)
-    * components used for rendering the information inside of a component are in
-        the directory [Popups/](/frontend/components/PopupPages/)
+* component used for movie tiles -> [MovieTile.jsx](/frontend/components/MovieTile.tsx)
+* component used for rendering the search results -> [MovieList.tsx](/frontend/components/MovieList.tsx)
+* component used for the search bar -> [SearchBar.jsx](/frontend/components/SearchBar.tsx)
+* component used for rendering a popup when a movie tile is pressed -> [Popup.tsx](/frontend/components/Popup.tsx)
+* components used for rendering the information inside of a component are in
+    the directory [Popups/](/frontend/components/PopupPages/)
 _object oriented components_  
-    * TODO
+* TODO
 
 ---
 ### [Backend](./backend)  
