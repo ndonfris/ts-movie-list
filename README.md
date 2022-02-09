@@ -29,7 +29,7 @@ ___
 
 ### [top 250 imdb](./frontend/routes/BrowseRoute.tsx)  
 <div align="center">
-    <img src="./images/search_screen.gif" width="50%" height="75%" />
+    <img src="./images/imdb_screen.MP4" width="50%" height="75%" />
 </div>
 
 ___
