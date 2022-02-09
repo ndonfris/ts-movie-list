@@ -4,22 +4,22 @@ This project is an mobile application written entirely in typescript,
 using react-native, expo, nodemon. It allows users to save movies to 
 watch list, and search for movies. It also allows for the user to see
 some of the following information on a movie:  
-    * Where to stream it
-    * Review Scores
-    * Actors
-    * Director
-    * Plot info
-    * Search for the trailer
-    * Search on google
+* Where to stream it
+* Review Scores
+* Actors
+* Director
+* Plot info
+* Search for the trailer
+* Search on google   
 This Files have been documented extensively, even though typescript allow
 for automatic LSP documentation. The frontend uses the frameworks react-native,and expo-cli
 to compile and run the program. The backend uses nodemon and mongodb
 to host the server. Below shows demos of the three main screens. Installation
 process can be found below.
 
-___
-###### Main Application Screens  
----
+
+##### Main Application Screens  
+
 ### [search](./frontend/routes/SavedRoute.tsx)  
 
 <div align="center">
