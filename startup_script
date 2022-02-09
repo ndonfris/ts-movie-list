@@ -22,6 +22,24 @@
 
 working_dir=$(pwd)
 
+# replace tilix with gnome-terminal or some other terminal
+# that can be passed flags to open it.
 tilix --working-directory=$working_dir/frontend --command=expo\ start
 
-tilix --working-directory=$working_dir --command=./server_starter
+tilix --working-directory=$working_dir --command=./backend_server_starter
+
+# Script For Mac Users
+
+#osascript <<-eof
+#    set first_command to "cd $working_dir; expo start"
+#    set second_command to "cd $working_dir;./startup_script"
+#    tell application "Terminal"
+#        activate
+#        do script first_command
+#    end tell
+#    tell application "Terminal"
+#        activate
+#        do script second_command
+#    end tell
+#eof
+

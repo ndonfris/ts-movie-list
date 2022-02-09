@@ -10,7 +10,7 @@ import MovieList from '../components/MovieList';
 import {createRequest} from '../helpers/Functions';
 import {Movie} from '../helpers/Interfaces';
 import serverURL from '../helpers/URL';
-import Movies from '../helpers/Top250Movies.json';
+import Movies from '../assets/Top250MoviesShort.json';
 
 /**
  * Creates the SearchRoute page. Imports the static file Top250Movies.json, which 

@@ -5,9 +5,6 @@ import SearchRoute from './routes/SearchRoute';
 import BrowseRoute from './routes/BrowseRoute';
 import SavedRoute from './routes/SavedRoute';
 
-
-// const ControllerRoute = () => <View style={styles.container}><Text style={styles.innerContainer}>Controller</Text></View>;
-
 const App = () => {
     const [index, setIndex] = React.useState(0);
 

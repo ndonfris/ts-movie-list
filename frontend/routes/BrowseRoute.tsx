@@ -9,7 +9,7 @@ import MovieList from '../components/MovieList';
 import {createGetRequestBody } from '../helpers/Functions';
 import {Movie} from '../helpers/Interfaces';
 import serverURL from '../helpers/URL';
-import Movies from '../helpers/Top250Movies.json';
+import Movies from '../assets/Top250MoviesShort.json';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 /**

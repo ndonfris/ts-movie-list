@@ -57,10 +57,7 @@ const searchActor = async (req: Request, res: Response)  => {
             method: 'GET',
             url: `'https://data-imdb1.p.rapidapi.com/actor/id/nm0000199/series_knownFor/${actorId}'`,
             params: {page_size: '50'},
-            headers: {
-                'x-rapidapi-host': 'data-imdb1.p.rapidapi.com',
-                'x-rapidapi-key': 'b7a1750641mshd4e6ef3df5d8fe4p1cb598jsn335a11e3b912'
-            }
+            headers: apiKeys.searchActor
         };
         const results = await axios.request(getMoviesOptions);
         const foundMovies = [] as ActorMovie[];
