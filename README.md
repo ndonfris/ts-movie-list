@@ -5,6 +5,8 @@
 ### Application has three screens  
 
 1.) [ __search__ ]  
+<img src="./search_screen.gif" width="250" height="350" />
+
 ![Alt Text](search_screen.gif)  
 
 1.) [ __watch list__ ]  
