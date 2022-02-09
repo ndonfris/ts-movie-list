@@ -2,9 +2,9 @@
 
 # ios application written entirely in typescript using react-native/expo/nodemon
 
-### Application has three screens  
+## Application has three screens  
 ---
-####[search](./frontend/routes/SavedRoute.tsx)  
+### [search](./frontend/routes/SavedRoute.tsx)  
 
 <div align="center">
     <img src="./search_screen.gif" width="50%" height="75%" />
@@ -12,7 +12,7 @@
 
 ___
 
-#### [watch list](./frontend/routes/SavedRoute.tsx)  
+### [watch list](./frontend/routes/SavedRoute.tsx)  
 
 <div align="center">
     <img src="./watch_list_screen.PNG" width="50%" height="75%" />
