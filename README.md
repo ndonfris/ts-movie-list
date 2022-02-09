@@ -31,7 +31,7 @@ __Installation__
 
 ---
 To start the entire application you will need to clone the repo and have a
-working version of npm, expo, and  installed.
+working version of __npm, expo, and ngrok__ installed.
 ```
 sudo apt install expo npm ngrok
 pip install pygrok
@@ -63,13 +63,13 @@ the process automates is the following following steps:
 
 __installation__  
 
-* If you have cloned the repo and used the installed npm, it should work
+If you have cloned the repo and used the installed npm, it should work
 
 
 ---
 __usage__
 
-* to start only the frontend just run:
+to start only the frontend just run:
 `
 expo start
 `
