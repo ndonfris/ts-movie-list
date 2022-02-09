@@ -9,7 +9,7 @@ to host the server. Below shows demos of the three main screens. Installation
 process can be found below.
 
 ___
-## Main Application Screens  
+###### Main Application Screens  
 ---
 ### [search](./frontend/routes/SavedRoute.tsx)  
 
