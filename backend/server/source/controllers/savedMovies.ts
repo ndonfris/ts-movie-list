@@ -1,4 +1,3 @@
-
 import toMovie from '../helpers/Functions';
 import {MovieMoreInfo, Movie, MoreInfo} from '../helpers/Interfaces';
 import { Request, Response } from 'express';

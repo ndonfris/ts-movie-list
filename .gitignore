@@ -1,4 +1,4 @@
-*/node_modules/
+**/node_modules
 frontend/.expo/
 dist/
 npm-debug.*
@@ -9,6 +9,8 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+
+/backend/server/source/config/apiKeys.ts
 
 # macOS
 .DS_Store

@@ -13,7 +13,7 @@ const App = () => {
 
     const [routes] = React.useState([
         { key: 'search', title: 'Search', icon: 'movie-search', color: "#292d3e" },
-        {key: 'saved', title: 'Saved', icon: 'content-save-edit-outline', color: "#292d3e"},
+        {key: 'saved', title: 'Saved', icon: 'content-save-edit-outline', color: "#3b4252"},
         {key: 'browse', title: 'Browse', icon: 'format-list-numbered', color: "#292d3e"},
     ]);
 

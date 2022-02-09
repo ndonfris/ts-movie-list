@@ -1,6 +1,7 @@
 
 import { NextFunction, Request, Response } from 'express';
 import logging from '../config/logging';
+import apiKeys from '../config/apiKeys';
 import {MovieMoreInfo, StreamWebsite} from '../helpers/Interfaces';
 
 
@@ -21,10 +22,7 @@ const moreInfo = async (req: Request, res: Response, next: NextFunction) => {
             method: 'GET',
             url: 'https://movie-database-imdb-alternative.p.rapidapi.com/',
             params: { i: search_id, page: '1', r: 'json', plot: 'full' },
-            headers: {
-                'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com',
-                'x-rapidapi-key': 'b7a1750641mshd4e6ef3df5d8fe4p1cb598jsn335a11e3b912'
-            }
+            headers: apiKeys.moreInfo
         };
         const result = await axios.request(options);
         res.setHeader('Content-Type', 'application/json');
@@ -50,10 +48,7 @@ const streamingInfo = async (req: Request, res: Response, next: NextFunction) =>
           method: 'GET',
           url: 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup',
           params: {source_id: search_id, source: 'imdb', country: 'us'},
-          headers: {
-            'x-rapidapi-host': 'utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com',
-            'x-rapidapi-key': 'b7a1750641mshd4e6ef3df5d8fe4p1cb598jsn335a11e3b912'
-          }
+          headers: apiKeys.streamingInfo
         };
         const result = await axios.request(options);
         const collectionArray = result.data['collection'];

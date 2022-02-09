@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import logging from '../config/logging';
-//import {extractActor} from '../helpers/Functions';
+import apiKeys from '../config/apiKeys';
 import {ActorMovie, Movie} from '../helpers/Interfaces';
 
 const NAMESPACE = 'Query';
@@ -18,19 +18,13 @@ const searchMovie = async (req: Request, res: Response, next: NextFunction) => {
             method: 'GET',
             url: 'https://movie-database-imdb-alternative.p.rapidapi.com/',
             params: { s: search_name, page: '1', r: 'json' },
-            headers: {
-                'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com',
-                'x-rapidapi-key': 'b7a1750641mshd4e6ef3df5d8fe4p1cb598jsn335a11e3b912'
-            }
+            headers: apiKeys.searchMovie
         };
         const secondPage = {
             method: 'GET',
             url: 'https://movie-database-imdb-alternative.p.rapidapi.com/',
             params: { s: search_name, page: '2', r: 'json' },
-            headers: {
-                'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com',
-                'x-rapidapi-key': 'b7a1750641mshd4e6ef3df5d8fe4p1cb598jsn335a11e3b912'
-            }
+            headers: apiKeys.searchMovie
         };
         const result = await axios.request(firstPage);
         if (result.data['totalResults'] > 11) {
@@ -54,10 +48,7 @@ const searchActor = async (req: Request, res: Response)  => {
     var getIdOptions = {
         method: 'GET',
         url: `'https://data-imdb1.p.rapidapi.com/actor/imdb_id_byName/${name}/'`,
-        headers: {
-            'x-rapidapi-host': 'data-imdb1.p.rapidapi.com',
-            'x-rapidapi-key': 'b7a1750641mshd4e6ef3df5d8fe4p1cb598jsn335a11e3b912'
-        }
+        headers: apiKeys.searchActor
     };
     try {
         const idResult = await axios.request(getIdOptions);
