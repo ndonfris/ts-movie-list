@@ -5,15 +5,17 @@
 ### Application has three screens  
 
 1.) [ __search__ ]  
-<img src="./search_screen.gif" width="250" height="350" />
+<div align="center">
+    <img src="./search_screen.gif" width="50%" height="75%" />
+</div>
 
-![Alt Text](search_screen.gif)  
+![Image](search_screen.gif)  
 
 1.) [ __watch list__ ]  
 ![Screenshot](./watch_list_screen.PNG)  
 
 1.) [ __top 250 imdb__ ]  
-![Alt Text](imdb_screen.gif)  
+[![imdb_screen](imdb_screen.gif)[imdb_screen.gif]]
 
 
 
