@@ -31,8 +31,8 @@ ___
 * To start the entire application you will need to clone the repo and have a
 working version of npm, expo, and  installed.
 ```
-sudo apt install expo npm 
-pip install ngrok
+sudo apt install expo npm ngrok
+pip install pygrok
 ```
 
 * You will also need to run the following command:
@@ -97,28 +97,20 @@ __documentation__
 
 __installation__
 
-* backend was built using: nodemon, mongodb, and rapidapi.com for external api
+backend was built using: nodemon, mongodb, and rapidapi.com for external api
 calls
-* this means you need a working version of node installed  
+this means you need a working version of node installed  
 
 ```
 node -v
 npm install nodemon
 ```
-* I used yarn as my package manager instead of npm so I also ran:   
+I used yarn as my package manager instead of npm so I also ran:   
 ```
 npm install --global yarn
 ```
 
 ---
-
-* requires __python3, nodemon, and ngrok__ installed
-```bash
-sudo apt install ngrok
-pip install pygrok
-```
-
-___ 
 
 __usage__
 
@@ -127,11 +119,14 @@ __usage__
 nodemon ./backend/server/source/server.ts
 ```
 
-_note_: 
+_note_:  
 * for the frontend to communicate with the backend, server_url will
-need to be updated in the directory ./frontend/helpers/URL.tsx
+need to be updated in the directory ./frontend/helpers/URL.tsx  
+
 * this uses ngrok to communicate through http.
+
 * either of the bash scripts ./server_starter will automate setting this up ./startup_script 
+
 * instead of using these scripts you could start up ngrok with the following command:  
 ```
 ngrok http 3000
@@ -156,4 +151,5 @@ ___
     * [dropdown picker website](https://hossein-zare.github.io/react-native-dropdown-picker-website/docs/usage)
     * [rapid api link - advanced movie search](https://rapidapi.com/jakash1997/api/advanced-movie-search/)
     * [maybe add api for in theaters results](https://rapidapi.com/patriciaatrindade/api/movies115/)
+
 
