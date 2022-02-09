@@ -66,7 +66,7 @@ the process automates is the following following steps:
 1. copies ngrok url from `ngrok http 3000` to the __serverURL__ variable defined in frontend/helpers/URL.tsx
 
 ---
-## [Frontend](./frontend/)   
+##### [Frontend](./frontend/)   
 
 __installation__  
 
@@ -102,7 +102,7 @@ _object oriented components_
     * TODO
 
 ---
-## [Backend](./backend/server)  
+### [Backend](./backend/server)  
 
 __installation__
 
@@ -144,7 +144,7 @@ ngrok http 3000
 
 ___
 
-## Future Goals
+##### Future Goals
 * add installation script 
 
 * add popupleft feature for -> find similar movies (rapid api has free imdb-api with this feature)
