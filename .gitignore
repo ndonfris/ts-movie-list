@@ -9,8 +9,9 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
+*.mp4
+*.MOV
 web-build/
-
 **/apiKeys.*
 
 # macOS

@@ -25,7 +25,7 @@ Information about the installation process can be found below.
 ### [search](./frontend/routes/SavedRoute.tsx)  
 
 <div align="center">
-    <img src="./images/search_screen.gif" width="50%" height="75%" />
+    <img src="./images/search.gif" width="50%" height="75%" />
 </div>  
 
 ___
@@ -40,7 +40,7 @@ ___
 
 ### [top 250 imdb](./frontend/routes/BrowseRoute.tsx)  
 <div align="center">
-    <img src="./images/imdb_screen.gif" width="50%" height="75%" />
+    <img src="./images/browse.gif" width="50%" height="75%" />
 </div>
 
 ___
