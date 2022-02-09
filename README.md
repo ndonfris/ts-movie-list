@@ -57,7 +57,7 @@ You will also need to run the following commands:
 ```
 cd ts-movie-list/frontend
 npm install
-cd ../ts-movie-list/backend/server
+cd ../ts-movie-list/backend
 npm install
 ```
 
@@ -70,7 +70,7 @@ directory and running the server_starter executable
 Further documentation for this script can be found inside of it but in short,
 the process automates is the following following steps:
 1. `start expo` (for the frontend)
-1. starts `nodemon ./backend/server/source/server.ts` (for the backend)
+1. starts `nodemon ./backend/source/server.ts` (for the backend)
 1. starts ngrok on port 3000 (for communication between frontend and backend)
 1. copies ngrok url from `ngrok http 3000` to the __serverURL__ variable defined in frontend/helpers/URL.tsx
 
@@ -111,7 +111,7 @@ _object oriented components_
     * TODO
 
 ---
-### [Backend](./backend/server)  
+### [Backend](./backend)  
 
 __installation__
 
@@ -134,7 +134,7 @@ __usage__
 
 to start only the backend run:   
 ```
-nodemon ./backend/server/source/server.ts
+nodemon ./backend/source/server.ts
 ```
 
 _note_:  

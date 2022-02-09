@@ -17,7 +17,7 @@
 #        this executeable essentially runs the following sequence of commands
 #   > ngrok http 3000   
 #        allows the frontend to send requests through port 3000 to the backend   
-#   > nodemon ./backend/server/source/server.ts
+#   > nodemon ./backend/source/server.ts
 #        starts up the server to listen on port 3000
 
 working_dir=$(pwd)
@@ -32,7 +32,7 @@ tilix --working-directory=$working_dir --command=./backend_server_starter
 
 #osascript <<-eof
 #    set first_command to "cd $working_dir; expo start"
-#    set second_command to "cd $working_dir;./startup_script"
+#    set second_command to "cd $working_dir;./backend_server_starter"
 #    tell application "Terminal"
 #        activate
 #        do script first_command

@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 
-from pyngrok import ngrok
 import os
 import sys
 from datetime import datetime
+from pyngrok import ngrok
 
 """
 
     Author:  Nick Donfris
     Purpose: Simple python file to write ngrok url in URL.tsx file
     (since ngrok isn't free). Also starts typescript server located at
-    ts-movie-list/backend/server/build/server.ts by envoking nodemon.
+    ts-movie-list/backend/source/server.ts by envoking nodemon.
 
 """
 
@@ -64,7 +64,7 @@ ngrok_process = ngrok.get_ngrok_process()
 try:
     print(" Server is running...")
     print(" Server will end at: " + will_end)
-    os.system('nodemon ./backend/server/source/server.ts')
+    os.system('nodemon ./server/source/server.ts')
     ngrok_process.proc.wait()
 
 except KeyboardInterrupt:
