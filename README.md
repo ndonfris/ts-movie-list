@@ -30,31 +30,31 @@ ___
 ---
 * To start the entire application you will need to clone the repo and have a
 working version of npm, expo, and  installed.
-`
+```
 sudo apt install expo npm 
 pip install ngrok
-`
+```
 
 * You will also need to run the following command:
-`
+```
 cd ts-movie-list/frontend
 npm install
 cd ../ts-movie-list/backend/server
 npm install
-`
+```
 
 * afterwards you should be able to view the application by going to the root
-directory and running the server_starter executable
-`
+directory and running the server_starter executable  
+```
 ./server_starter
-`
+```
 
 * Further documentation for this script can be found inside of it but the
 process it automates is the following:
-    1. start expo (for frontend)
-    1. starts nodemon (for backend)
-    1. starts ngrok on port 3000 (for communication between frontend and backend)
-    1. updates ngrok url in frontend/helpers/URL.tsx
+1. start expo (for frontend)
+1. starts nodemon (for backend)
+1. starts ngrok on port 3000 (for communication between frontend and backend)
+1. updates ngrok url in frontend/helpers/URL.tsx
 
 ---
 ## [Frontend](./frontend/)   
@@ -76,21 +76,21 @@ ___
 __documentation__
 
 
-[routes](./frontend/routes/) contain the pages to be rendered
-    * [search screen](./frontend/routes/SearchRoute.tsx)
-    * [saved movies screen](./frontend/routes/SavedRoute.tsx)
-    * [imdb filter screen](./frontend/routes/SearchRoute.tsx)
+[routes](./frontend/routes/) contain the pages to be rendered  
+* [search screen](./frontend/routes/SearchRoute.tsx)
+* [saved movies screen](./frontend/routes/SavedRoute.tsx)
+* [imdb filter screen](./frontend/routes/SearchRoute.tsx)
 
 [components](./frontend/components/) used on the pages are located in ./components  
-    * __functional components__
-        * component used for movie tiles -> [MovieTile.jsx](/frontend/components/MovieTile.tsx)
-        * component used for rendering the search results -> [MovieList.tsx](/frontend/components/MovieList.tsx)
-        * component used for the search bar -> [SearchBar.jsx](/frontend/components/SearchBar.tsx)
-        * component used for rendering a popup when a movie tile is pressed -> [Popup.tsx](/frontend/components/Popup.tsx)
-        * components used for rendering the information inside of a component are in
-            the directory [Popups/](/frontend/components/PopupPages/)
-    * __object oriented components__
-        * TODO
+* __functional components__  
+    * component used for movie tiles -> [MovieTile.jsx](/frontend/components/MovieTile.tsx)
+    * component used for rendering the search results -> [MovieList.tsx](/frontend/components/MovieList.tsx)
+    * component used for the search bar -> [SearchBar.jsx](/frontend/components/SearchBar.tsx)
+    * component used for rendering a popup when a movie tile is pressed -> [Popup.tsx](/frontend/components/Popup.tsx)
+    * components used for rendering the information inside of a component are in
+        the directory [Popups/](/frontend/components/PopupPages/)
+* __object oriented components__
+    * TODO
 
 ---
 ## [Backend](./backend/server)  
@@ -99,15 +99,16 @@ __installation__
 
 * backend was built using: nodemon, mongodb, and rapidapi.com for external api
 calls
-* this means you need a working version of node installed
-`
+* this means you need a working version of node installed  
+
+```
 node -v
 npm install nodemon
-`
-* I used yarn as my package manager instead of npm so I also ran:
-`
+```
+* I used yarn as my package manager instead of npm so I also ran:   
+```
 npm install --global yarn
-`
+```
 
 ---
 
@@ -117,7 +118,7 @@ sudo apt install ngrok
 pip install pygrok
 ```
 
---- 
+___ 
 
 __usage__
 
