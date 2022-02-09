@@ -27,15 +27,17 @@ ___
 
 ---
 
+__Installation__
+
 ---
-* To start the entire application you will need to clone the repo and have a
+To start the entire application you will need to clone the repo and have a
 working version of npm, expo, and  installed.
 ```
 sudo apt install expo npm ngrok
 pip install pygrok
 ```
 
-* You will also need to run the following commands:
+You will also need to run the following commands:
 ```
 cd ts-movie-list/frontend
 npm install
@@ -43,18 +45,18 @@ cd ../ts-movie-list/backend/server
 npm install
 ```
 
-* afterwards you should be able to view the application by going to the root
+afterwards you should be able to view the application by going to the root
 directory and running the server_starter executable  
 ```
 ./server_starter
 ```
 
-* Further documentation for this script can be found inside of it but the
-process it automates is the following:
-1. start expo (for frontend)
-1. starts nodemon (for backend)
+Further documentation for this script can be found inside of it but in short,
+the process automates is the following following steps:
+1. `start expo` (for the frontend)
+1. starts `nodemon ./backend/server/source/server.ts` (for the backend)
 1. starts ngrok on port 3000 (for communication between frontend and backend)
-1. updates ngrok url in frontend/helpers/URL.tsx
+1. copies ngrok url from `ngrok http 3000` to the __serverURL__ variable defined in frontend/helpers/URL.tsx
 
 ---
 ## [Frontend](./frontend/)   
