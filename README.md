@@ -2,6 +2,21 @@
 
 # ios application written entirely in typescript using react-native/expo/nodemon
 
+### Application has three screens  
+
+1.) [ __search__ ]  
+![Alt Text](search_screen.gif)  
+
+1.) [ __watch list__ ]  
+![Screenshot](./watch_list_screen.PNG)  
+
+1.) [ __top 250 imdb__ ]  
+![Alt Text](imdb_screen.gif)  
+
+
+
+
+
 ## Next Goals
 * add database
 * add popupleft feature for -> find similar movies (rapid api has free imdb-api with this feature)
