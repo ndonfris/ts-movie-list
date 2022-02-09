@@ -1,7 +1,8 @@
-
+import os
+import sys
 import json
 
-f = open('./top250.json')
+f = open('../top250.json')
 
 arr = json.load(f)
 
@@ -59,5 +60,16 @@ for data in arr:
     print(new_dict)
     result.append(new_dict)
 
-with open("new_my250.json", 'w') as file:
+file_path = os.getcwd().split('/')
+if ('ts-movie-list' not in file_path):
+    print("Error: you are not in a directory containing the server")
+    sys.exit(1)
+
+for directory in file_path[::-1]:
+    if (directory != 'assets'):
+        os.chdir('../')
+    if (directory == 'ts-movie-list'):
+        break
+
+with open("./top250MoviesFull.json", 'w') as file:
     json.dump(result, file, indent=4)

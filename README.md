@@ -35,7 +35,7 @@ sudo apt install expo npm ngrok
 pip install pygrok
 ```
 
-* You will also need to run the following command:
+* You will also need to run the following commands:
 ```
 cd ts-movie-list/frontend
 npm install
@@ -132,6 +132,7 @@ need to be updated in the directory ./frontend/helpers/URL.tsx
 ngrok http 3000
 ```
 * then you would need to update the frontend/helpers/URL.tsx variable
+* so copy the http://url.ngrok.io
 
 ___
 
@@ -151,5 +152,4 @@ ___
     * [dropdown picker website](https://hossein-zare.github.io/react-native-dropdown-picker-website/docs/usage)
     * [rapid api link - advanced movie search](https://rapidapi.com/jakash1997/api/advanced-movie-search/)
     * [maybe add api for in theaters results](https://rapidapi.com/patriciaatrindade/api/movies115/)
-
 
