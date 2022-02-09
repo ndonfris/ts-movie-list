@@ -4,17 +4,17 @@
 
 ### Application has three screens  
      ## [search](./frontend/routes/SavedRoute.tsx)  
-    <div align="center">
-        <img src="./search_screen.gif" width="50%" height="75%" />
-    </div>
+<div align="center">
+    <img src="./search_screen.gif" width="50%" height="75%" />
+</div>
 ## [watch list](./frontend/routes/SavedRoute.tsx)  
-    <div align="center">
-        <img src="./watch_list_screen.PNG" width="50%" height="75%" />
-    </div>
+<div align="center">
+    <img src="./watch_list_screen.PNG" width="50%" height="75%" />
+</div>
 ## [top 250 imdb](./frontend/routes/BrowseRoute.tsx)  
-    <div align="center">
-        <img src="./search_screen.gif" width="50%" height="75%" />
-    </div>
+<div align="center">
+    <img src="./search_screen.gif" width="50%" height="75%" />
+</div>
 
 
 
