@@ -7,7 +7,7 @@
 ### [search](./frontend/routes/SavedRoute.tsx)  
 
 <div align="center">
-    <img src="./search_screen.gif" width="50%" height="75%" />
+    <img src="./images/search_screen.gif" width="50%" height="75%" />
 </div>  
 
 ___
@@ -15,14 +15,14 @@ ___
 ### [watch list](./frontend/routes/SavedRoute.tsx)  
 
 <div align="center">
-    <img src="./watch_list_screen.PNG" width="50%" height="75%" />
+    <img src="./images/watch_list_screen.PNG" width="50%" height="75%" />
 </div>   
 
 ___
 
 ### [top 250 imdb](./frontend/routes/BrowseRoute.tsx)  
 <div align="center">
-    <img src="./search_screen.gif" width="50%" height="75%" />
+    <img src="./images/search_screen.gif" width="50%" height="75%" />
 </div>
 
 ---
