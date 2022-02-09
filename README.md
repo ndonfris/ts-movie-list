@@ -25,7 +25,7 @@ ___
     <img src="./images/search_screen.gif" width="50%" height="75%" />
 </div>
 
----
+___
 
 __Installation__
 
@@ -84,14 +84,14 @@ __documentation__
 * [imdb filter screen](./frontend/routes/SearchRoute.tsx)
 
 [components](./frontend/components/) used on the pages are located in ./components  
-* __functional components__  
+_functional components_  
     * component used for movie tiles -> [MovieTile.jsx](/frontend/components/MovieTile.tsx)
     * component used for rendering the search results -> [MovieList.tsx](/frontend/components/MovieList.tsx)
     * component used for the search bar -> [SearchBar.jsx](/frontend/components/SearchBar.tsx)
     * component used for rendering a popup when a movie tile is pressed -> [Popup.tsx](/frontend/components/Popup.tsx)
     * components used for rendering the information inside of a component are in
         the directory [Popups/](/frontend/components/PopupPages/)
-* __object oriented components__
+_object oriented components_  
     * TODO
 
 ---
@@ -116,16 +116,15 @@ npm install --global yarn
 
 __usage__
 
-* to start only the backend run:   
+to start only the backend run:   
 ```
 nodemon ./backend/server/source/server.ts
 ```
 
 _note_:  
-* for the frontend to communicate with the backend, server_url will
-need to be updated in the directory ./frontend/helpers/URL.tsx  
+* for the frontend to communicate with the backend, server_url will need to be updated in the directory ./frontend/helpers/URL.tsx  
 
-* this uses ngrok to communicate through http.
+* this uses ngrok to communicate through http
 
 * either of the bash scripts ./server_starter will automate setting this up ./startup_script 
 
