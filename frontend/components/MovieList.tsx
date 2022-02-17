@@ -22,7 +22,7 @@ interface Props {
  */
 const MovieList = ({movieArray}: Props) => {
 
-    /**
+    /*
      * Decomposition function that helps render each item in the FlatList.
      * A FlatList could be thought of as a for loop on a list of components.
      * The keyExtractor prop on the <FlatList/>, specifies to the FlatList

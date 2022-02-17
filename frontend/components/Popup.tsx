@@ -11,6 +11,7 @@ import PopupCenter from "./PopupPages/PopupCenter";
 import PopupRight from "./PopupPages/PopupRight";
 import { MovieMoreInfo } from '../helpers/Interfaces';
 import { AntDesign } from '@expo/vector-icons';
+import colors from '../helpers/Colors';
 
 /* Props used in the CloseButton Functional Component */
 interface CloseProps {
@@ -35,7 +36,7 @@ function CloseButton({updateModal, modalVisible}: CloseProps ){
             style={[styles.button, styles.buttonClose]}
             onPress={() => updateModal(!modalVisible)}
         >
-            <AntDesign name="closecircleo" size={24} color="white" />
+            <AntDesign name="closecircleo" size={24} color={colors.dullWhite} />
         </Pressable>
     );
 }
@@ -88,7 +89,7 @@ const Popup = ({moreInfo, updateModal, modalVisible}: Props) => {
                     visible={modalVisible}
                     onRequestClose={() => {
                         updateModal(!modalVisible);
-                    }}>
+                }}>
                     <View style={styles.centeredView}>
                         <View style={styles.modalView}>
                             <CloseButton updateModal={updateModal} modalVisible={modalVisible}/>
@@ -157,21 +158,21 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     modalView: {
-        backgroundColor: "#292d3e",
+        backgroundColor: colors.barDarker,
         borderRadius: 20,
         width: "90%",
         height: "75%",
-        shadowColor: "#fff",
+        shadowColor: "#000",
         shadowOffset: {
-            width: 0,
-            height: 2
+            width: 5,
+            height: 5
         },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
+        shadowOpacity: 0.5,
+        shadowRadius: 3,
         elevation: 5
     },
     footer: {
-        color: "#fff",
+        color: colors.dullWhite,
         flexDirection: "row",
         alignSelf: "center",
         justifyContent: "space-evenly",
@@ -180,7 +181,7 @@ const styles = StyleSheet.create({
         bottom: 10,
     },
     button: {
-        color: "#fff",
+        color: colors.dullWhite,
         borderRadius: 30,
         padding: 10,
         backgroundColor: "transparent",
@@ -203,7 +204,7 @@ const styles = StyleSheet.create({
         height: 8,
         width: 8,
         borderRadius: 4,
-        backgroundColor: "#fff",
+        backgroundColor: colors.dullWhite,
         marginHorizontal: 4
     },
     indicatorContainer: {

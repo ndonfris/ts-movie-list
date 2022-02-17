@@ -44,8 +44,19 @@ ___
 </div>
 
 ___
+### Testing/Viewing
+1. Go to (https://snack.expo.dev)[https://snack.expo.dev/@ndonfris29/github.com-ndonfris-ts-movie-list:frontend]
+1. Navigate to the right side of the webpage.
+1. Pick your preferred method of viewing the application (my device, ios,
+   andriod, or web).   
+    1. It is completely optional to download the expo app, but performance will be
+       significantly increased if you choose this method.  
 
-__Installation__
+If the above method (using snack) does not work, I have provided a script in this repo that allows for
+extremely easy installation of the application.  
+___
+
+## Installation
 
 ---
 To start the entire application you will need to clone the repo and have a
@@ -77,7 +88,7 @@ the process automates is the following following steps:
 1. copies ngrok url from `ngrok http 3000` to the __serverURL__ variable defined in frontend/helpers/URL.tsx
 
 ---
-##### [Frontend](./frontend/)   
+#### [Frontend](./frontend/)   
 
 __installation__  
 

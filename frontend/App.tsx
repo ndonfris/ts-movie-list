@@ -4,20 +4,21 @@ import { BottomNavigation } from 'react-native-paper';
 import SearchRoute from './routes/SearchRoute';
 import BrowseRoute from './routes/BrowseRoute';
 import SavedRoute from './routes/SavedRoute';
+import colors from './helpers/Colors';
 
 const App = () => {
     const [index, setIndex] = React.useState(0);
 
     const [routes] = React.useState([
-        { key: 'search', title: 'Search', icon: 'movie-search', color: "#292d3e" },
-        {key: 'saved', title: 'Saved', icon: 'content-save-edit-outline', color: "#3b4252"},
-        {key: 'browse', title: 'Browse', icon: 'format-list-numbered', color: "#292d3e"},
+        {key: 'search', title: 'Search', icon: 'movie-search', color: colors.barDarker },
+        {key: 'saved', title: 'Saved', icon: 'content-save-edit-outline', color: colors.barLighter},
+        {key: 'browse', title: 'Browse', icon: 'format-list-numbered', color: colors.barDarker},
     ]);
 
     const renderScene = BottomNavigation.SceneMap({
         search: SearchRoute,
-        browse: BrowseRoute,
         saved: SavedRoute,
+        browse: BrowseRoute,
     });
 
     return (
@@ -27,9 +28,11 @@ const App = () => {
             renderScene={renderScene}
             shifting={true}
             barStyle={{
-                backgroundColor: '#000',
+                backgroundColor: colors.black,
                 height: 70,
             }}
+            inactiveColor={colors.slate}
+            activeColor={colors.dullWhite}
         />
     );
 };

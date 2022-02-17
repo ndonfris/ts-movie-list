@@ -8,6 +8,7 @@ import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import OpenLinks from '../OpenLinks';
 import ReviewList from '../ReviewList';
 import {MovieMoreInfo} from '../../helpers/Interfaces';
+import colors from '../../helpers/Colors';
 
 
 /* strings used to help display the backend api data */
@@ -90,6 +91,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "bold",
         paddingBottom: 5,
+        color: colors.dullWhite
     },
     scroll: {
         maxHeight: 125,
@@ -98,15 +100,18 @@ const styles = StyleSheet.create({
         fontSize: 10,
         marginTop: 3,
         paddingRight: 30,
+        color: colors.dullWhite
     },
     smallTitle: {
         fontSize: 13,
         fontWeight: "bold",
         paddingRight: 5,
+        color: colors.dullWhite
     },
     mediumTitle: {
         fontSize: 14,
         fontWeight: "bold",
+        color: colors.dullWhite
     },
     imageContainer: {
         borderRadius: 20,
@@ -125,6 +130,7 @@ const styles = StyleSheet.create({
         minHeight: 80,
         paddingLeft: 0,
         paddingRight: 15,
+        color: colors.dullWhite
     },
     textInline: {
         flexDirection: "row",

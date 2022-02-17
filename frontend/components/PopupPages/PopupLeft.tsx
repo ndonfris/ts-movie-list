@@ -9,6 +9,7 @@ import { MovieMoreInfo, StreamWebsite } from '../../helpers/Interfaces';
 import { noStreamingSites, requestHelper } from '../../helpers/Functions';
 import { Ionicons } from '@expo/vector-icons';
 import serverURL from '../../helpers/URL';
+import colors from '../../helpers/Colors';
 
 interface ShowListProps {
     availabileSites: StreamWebsite[];
@@ -175,17 +176,17 @@ const styles = StyleSheet.create({
         width: 100,
         height: 50,
         resizeMode: "contain",
-        tintColor: 'black'
+        tintColor:  colors.dullWhite
     },
     title: {
         fontSize: 22,
         fontWeight: "bold",
-        color: "#000",
+        color:  colors.dullWhite,
         position: "absolute",
         top: 10,
     },
     text: {
-        color: "#000",
+        color:  colors.dullWhite,
         fontWeight: 'bold',
         justifyContent: 'center',
         textAlign: "center",

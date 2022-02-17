@@ -6,6 +6,7 @@
 import React from 'react';
 import {StyleSheet, Text, Pressable, View, Linking} from "react-native";
 import {AntDesign} from '@expo/vector-icons';
+import colors from '../helpers/Colors';
 
 interface Props {
     title: string;
@@ -23,7 +24,7 @@ function GetTrailer({title}: Props) {
     return (
         <View style={styles.item}> 
             <Pressable onPress={() => { Linking.openURL(searchURL) }} >
-                <AntDesign name="youtube" size={24} color="black" />
+                <AntDesign name="youtube" size={24} color={colors.dullWhite} />
             </Pressable>
             <Text style={styles.text}>Search Trailer</Text>
         </View>
@@ -42,7 +43,7 @@ function GetGoogle({title}: Props) {
     return (
         <View style={styles.item}> 
             <Pressable onPress={() => { Linking.openURL(searchURL) }} >
-                <AntDesign name="google" size={24} color="black" />
+                <AntDesign name="google" size={24} color={colors.dullWhite} />
             </Pressable>
             <Text style={styles.text}>Search Google</Text>
         </View>
@@ -84,6 +85,7 @@ const styles = StyleSheet.create({
     text: {
         marginTop: 5,
         fontSize: 8,
+        color: colors.dullWhite
     }
 })
 

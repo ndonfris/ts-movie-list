@@ -1,11 +1,11 @@
 /*
  *
- * Server started at:     17:24
- * Server will end at:    19:24
+ * Server started at:     16:46
+ * Server will end at:    18:46
  *
  */
 
 
-const serverURL = "http://56ee-2600-8800-7888-7900-f06f-53dd-1ffb-a45f.ngrok.io";
+const serverURL = "http://34c5-68-231-190-186.ngrok.io";
 
 export default serverURL;

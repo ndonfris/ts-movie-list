@@ -11,18 +11,15 @@ import {Movie} from '../helpers/Interfaces';
 import serverURL from '../helpers/URL';
 import Movies from '../assets/Top250MoviesShort.json';
 import DropDownPicker from 'react-native-dropdown-picker';
+import colors from '../helpers/Colors';
 
-/**
+/*
  * Creates a SearchRoute page. Imports the static file Top250Moives.json, which
  * contains the necessary data to render MovieItem's of type Movie. 
- *
- * TODO: implement catagoryQuery, Remove searchQuery
  *
  * @returns {JSX.Element} - Browse Page rendered by clicking on the bottom bar.
  */
 export default function BrowseRoute() {
-    /* TODO: maybe remove this, or store the item choosen from items */
-    const [query, setQuery] = useState('');
 
     /* prop that determines if the catagory dropdown is opened  */
     const [open, setOpen] = useState(false);
@@ -30,24 +27,21 @@ export default function BrowseRoute() {
     /* individual value of the selected in the items */
     const [value, setValue] = useState(null);
 
-    /* the Movie genres to search by */
+    /* the Movie genres that are searchable in the database */
     const [items, setItems] = useState([
         {label: 'Action', value: 'Action'},
         {label: 'Adventure', value: 'Adventure'},
         {label: 'Animation', value: 'Animation'},
         {label: 'Comedy', value: 'Comedy'},
         {label: 'Crime', value: 'Crime'},
-        {label: 'Documentary', value: 'Documentary'},
         {label: 'Drama', value: 'Drama'},
         {label: 'Family', value: 'Family'},
         {label: 'Fantasy', value: 'Fantasy'},
         {label: 'History', value: 'History'},
         {label: 'Horror', value: 'Horror'},
-        {label: 'Music', value: 'Music'},
         {label: 'Mystery', value: 'Mystery'},
         {label: 'Romance', value: 'Romance'},
         {label: 'Science Fiction', value: 'Science Fiction'},
-        {label: 'TV Movie', value: 'TV Movie'},
         {label: 'Thriller', value: 'Thriller'},
         {label: 'War', value: 'War'},
         {label: 'Western', value: 'Western'}
@@ -56,13 +50,27 @@ export default function BrowseRoute() {
     /* the results found from the query function */
     const [movieResults, setMovieResults] = useState<Movie[]>(Movies);
 
-    const searchGenre = async () : Promise<Movie[]> => {
+    /**
+     * @async searchGenre - searches the database for any movie matching the genre
+     *                      passed in as a param. Called when the user selects a 
+     *                      item from the dropdown menu.
+     *
+     * @param value - the selected value from the user
+     *
+     * @returns {Promise<Movie[]>} - Returns a promise that resolves an array of movies 
+     *                               from the backend, which will then re-render the 
+     *                               MovieList component. 
+     */
+    const searchGenre = async (value:string) : Promise<Movie[]> => {
         Keyboard.dismiss();
+        console.log(value);
+        if (value === "IMDb top 250") {
+            return;
+        }
         let reqData = createGetRequestBody("genre", value);
         try {
             const response = await fetch(serverURL+"/browse/genre", reqData);
             const body = await response.json();
-            console.log(body);
             setMovieResults(body);
             return body;
         } catch (e) {
@@ -81,7 +89,7 @@ export default function BrowseRoute() {
                     setOpen={setOpen}
                     setValue={setValue}
                     setItems={setItems}
-                    onSelectItem={() => searchGenre()}
+                    onChangeValue={() => {searchGenre(value)}}
                     placeholder="IMDb Top 250"
                     theme="DARK"
                     style={styles.topBar}
@@ -106,7 +114,7 @@ export default function BrowseRoute() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#0D1117",
+        backgroundColor: colors.black,
     },
     topContainer: {
         marginTop: '15%',

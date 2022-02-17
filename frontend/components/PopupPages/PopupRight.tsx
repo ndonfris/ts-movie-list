@@ -8,6 +8,7 @@ import {StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import {createRequest} from '../../helpers/Functions';
 import {MovieMoreInfo} from '../../helpers/Interfaces';
 import serverURL from '../../helpers/URL';
+import colors from '../../helpers/Colors';
 
 /* the MovieMoreInfo prop containing the info pertaining to a Movie  */
 interface Props {
@@ -90,14 +91,14 @@ const styles = StyleSheet.create({
         width: 280,
         textAlign: "center",
         fontWeight: "bold",
-        color: '#fff',
+        color: colors.dullWhite,
         marginTop: 10,
     },
     textWrapper: {
         textAlignVertical: "center",
         height: 35,
         width: 280,
-        backgroundColor: '#000',
+        backgroundColor: colors.black,
         borderRadius: 20,
     },
     buttonWrapper: {

@@ -4,12 +4,13 @@
  * Created:     01/24/22
  */
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, Modal, Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
 import {Movie, MovieMoreInfo} from '../helpers/Interfaces';
 import {createRequest, failedMovieMoreInfo} from '../helpers/Functions';
 import serverURL from '../helpers/URL';
 import Popup from './Popup';
 
+/* single movie from typically from a movieArray */
 interface Props {
     movie: Movie;
 }

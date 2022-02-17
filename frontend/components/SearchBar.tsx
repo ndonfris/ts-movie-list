@@ -6,6 +6,7 @@
 import React, {FC} from 'react';
 import {View, StyleSheet, TextInput} from 'react-native';
 import {Movie} from '../helpers/Interfaces';
+import colors from '../helpers/Colors';
 
 /* props necessary for the searchbar  */
 interface Props {
@@ -53,14 +54,14 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: '15%',
         alignItems: 'center',
-        color: "#bfc7d5",
+        color: colors.black,
     },
     bar: {
         justifyContent: "space-around",
         width: 325,
         height: 50,
         textAlign: 'center',
-        backgroundColor: "#292d3e",
+        backgroundColor: colors.barDarker,
         borderRadius: 20,
         paddingLeft: 20,
         paddingRight: 20,
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
     text: {
-        color: "#bfc7d5",
+        color: colors.black
     }
 });
 

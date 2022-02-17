@@ -49,7 +49,7 @@ const getAllMoviesLess = async (req: Request, res: Response) => {
 const saveMovie = async (req: Request, res: Response) => {
     const toSave = JSON.parse(req.body.title);
     const filter = {
-        imdbID: toSave.Title,
+        imdbID: toSave.imdbID,
         imdbRating: toSave.imdbRating,
         imdbVotes: toSave.imdbVotes,
         Language: toSave.Language,
@@ -111,18 +111,21 @@ const getInfo = async (req: Request, res: Response) => {
 };
 
 const removeMovie = async (req: Request, res: Response) => {
-    const id: string = req?.params?.id;
+    const toRemove = req.body.title;
+    //const id = JSON.parse(req.body.title);
+    console.log(req.body);
+    //console.log(id);
     const filter = {
-        imdbID: id
+        imdbID: toRemove
     };
     try {
         await client.connect();
         console.log('Connected to mongoDB successfully');
-
         const db = client.db(dbName);
         const collection = db.collection('watchList');
         const result = await collection.findOneAndDelete(filter);
-        result ? res.status(201).send(`Successfully removed movie with imdbID=${id} from your watchlist`) : res.status(500).send(`Failed to remove imdbId ${id}`);
+        console.log(result);
+        result ? res.status(201).send(`Successfully removed movie with imdbID=${toRemove} from your watchlist`) : res.status(500).send(`Failed to remove imdbId ${toRemove}`);
         client.close();
     } catch (error) {
         console.log(error);

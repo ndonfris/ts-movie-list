@@ -6,11 +6,12 @@
 import React from 'react';
 import {StyleSheet, Text, View, Pressable, Linking} from "react-native";
 import {MovieMoreInfo, Rating} from "../helpers/Interfaces";
-import { SvgXml } from "react-native-svg";
-import RottenTomatoesIcon from '../assets/RTIcon.svg';
-import MetacriticLogo from '../assets/MetacriticLogo.svg';
-import ImdbIcon from '../assets/ImdbIcon.svg';
+import {SvgXml} from "react-native-svg";
+import RottenTomatoesIcon from '../assets/RT_new.svg';
+import MetacriticLogo from '../assets/META_new.svg';
+import ImdbIcon from '../assets/IMDB_new.svg';
 import {MaterialIcons} from '@expo/vector-icons';
+import colors from '../helpers/Colors';
 
 
 /* Props used in each of the following functional components */
@@ -114,7 +115,7 @@ function NoneFound({Ratings}: ReviewProps) {
     } else {
         return (
             <View style={styles.rating} >
-                <MaterialIcons name="error-outline" size={40} color="black" style={styles.error}/>
+                <MaterialIcons name="error-outline" size={40} color={colors.dullWhite} style={styles.error}/>
                 <Text style={styles.text}>Reviews not found</Text>
             </View>
         );
@@ -156,11 +157,11 @@ const styles = StyleSheet.create({
         minHeight: 100,
     },
     rating: {
-        color: '#fff',
+        color: colors.dullWhite,
         margin: 10,
     },
     text: {
-        color: "#000",
+        color: colors.dullWhite,
         top: -20,
         fontSize: 20,
         fontWeight: "bold",

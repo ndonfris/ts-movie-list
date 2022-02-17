@@ -13,7 +13,8 @@ router.get('/get/full', controller.getAllMoviesFull);
 router.get('/get/less', controller.getAllMoviesLess);
 router.get('/get/info:id', controller.getInfo);
 router.post('/add', controller.saveMovie);
-router.delete('/remove:id', controller.removeMovie);
+//router.delete('/remove:id', controller.removeMovie);
+router.post('/remove', controller.removeMovie);
 
 /*
  * Requires the MongoDB Node.js Driver

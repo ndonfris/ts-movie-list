@@ -11,8 +11,9 @@ import {createRequest} from '../helpers/Functions';
 import {Movie} from '../helpers/Interfaces';
 import serverURL from '../helpers/URL';
 import Movies from '../assets/Top250MoviesShort.json';
+import colors from '../helpers/Colors';
 
-/**
+/*
  * Creates the SearchRoute page. Imports the static file Top250Movies.json, which 
  * is just used for pre-query info.
  *
@@ -26,9 +27,8 @@ export default function SearchRoute() {
     const [movieResults, setMovieResults] = useState<Movie[]>(Movies);
 
     /**
-     * uses the query, changed in the SearchBar component.
+     * @async searchQuery - uses the query, changed in the SearchBar component. 
      *
-     * @async
      * @throws {Error} - Typically thrown if server is not connected/running
      * @returns {Promise<Movie[]>} - Array of Movies, found from query
      */
@@ -74,7 +74,7 @@ export default function SearchRoute() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#0D1117",
+        backgroundColor: colors.black,
     },
     results: {
         paddingTop: 0,
