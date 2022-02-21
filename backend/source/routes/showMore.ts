@@ -3,7 +3,7 @@ import controller from '../controllers/moreInfo';
 
 const router = express.Router();
 
-router.post('/moreInfo', controller.moreInfo);
+router.post('/more_info', controller.moreInfo);
 router.post('/streaming', controller.streamingInfo);
 
 export = router;

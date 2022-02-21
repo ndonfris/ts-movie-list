@@ -82,3 +82,12 @@ export interface StreamWebsite {
     name?: string;
     url?: string;
 }
+
+export interface addRequestBody {
+    [title: string]: MovieMoreInfo;
+}
+
+export interface reqBody<T> {
+    [key: string]: T;
+}
+

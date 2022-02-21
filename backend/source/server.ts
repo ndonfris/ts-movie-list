@@ -29,6 +29,7 @@ router.use((req, res, next) => {
 /* gets rid of using JSON.parse() or JSON.stringify() */
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
+// parse various different custom JSON types as JSON
 
 /* Rules of the API */
 /* eventually change {Access-Control-Allow-Origin', '*'}  to predefined ip's*/

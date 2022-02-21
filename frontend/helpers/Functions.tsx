@@ -10,7 +10,7 @@
  * of what I decided to include here.
  */
 
-import {PostRequest, Movie, MovieMoreInfo, StreamWebsite} from './Interfaces';
+import {PostRequest, Movie, MovieMoreInfo, StreamWebsite, addRequestBody, reqBody} from './Interfaces';
 
 /**
  * requestHelper(bodyString) - this function is similiar to createRequest. However, instead
@@ -23,7 +23,8 @@ import {PostRequest, Movie, MovieMoreInfo, StreamWebsite} from './Interfaces';
  *                          with this request having the request method, headers, mode
  *                          defined. Also sets the body set to the key "title"
  */
-export function requestHelper(bodyString : string ): RequestInit {
+export function requestHelper(bodyData: string): RequestInit {
+    console.log("requestHelper got:\n" + bodyData);
     return {
         method: 'POST',
         mode: 'no-cors',
@@ -31,8 +32,8 @@ export function requestHelper(bodyString : string ): RequestInit {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({"title": bodyString}),
-    }
+        body: bodyData
+    };
 }
 
 /**
@@ -62,13 +63,13 @@ export function createRequest(request: PostRequest): RequestInit {
  *                                  fields pre-defined and the body matching the
  *                                  key value pair.
  *
- * @param {string} key - the key for the bodyString
- * @param {string} value -  the value for the bodyString
+ * @param {string} keyString -  the key for the bodyString
+ * @param {string} valueString -  the value for the bodyString
  * @returns {RequestInit} - defines a request to send to a backend URI,
  *                          with this request having the request method, headers, mode
  *                          defined. Also sets the body set to the key "title"
  */
-export function createGetRequestBody(keyString: string, valueString: string): RequestInit {
+export function createRequestBody(keyString: string, valueString: string): RequestInit {
     return {
         method: 'POST',
         mode: 'no-cors',
@@ -144,4 +145,17 @@ export function noStreamingSites(imdbID : string): StreamWebsite[] {
         ],
     }]
 }
+
+export function addMovieRequest(reqBody: addRequestBody) : RequestInit {
+    return {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            accept: 'application/json',
+            contentType: 'application/json'
+        },
+        body: JSON.stringify(reqBody),
+    };               
+}
+
 

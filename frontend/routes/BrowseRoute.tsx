@@ -6,8 +6,8 @@
 import React, {useState} from 'react';
 import {Keyboard, View, StyleSheet, SafeAreaView} from 'react-native';
 import MovieList from '../components/MovieList';
-import {createGetRequestBody } from '../helpers/Functions';
-import {Movie} from '../helpers/Interfaces';
+import {requestHelper} from '../helpers/Functions';
+import {Movie, reqBody} from '../helpers/Interfaces';
 import serverURL from '../helpers/URL';
 import Movies from '../assets/Top250MoviesShort.json';
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -67,7 +67,10 @@ export default function BrowseRoute() {
         if (value === "IMDb top 250") {
             return;
         }
-        let reqData = createGetRequestBody("genre", value);
+        let bodyData: reqBody<string> = {
+            "Genre": value
+        }
+        let reqData = requestHelper(JSON.stringify(bodyData));
         try {
             const response = await fetch(serverURL+"/browse/genre", reqData);
             const body = await response.json();

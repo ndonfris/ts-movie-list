@@ -5,8 +5,8 @@
  */
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {Movie, MovieMoreInfo} from '../helpers/Interfaces';
-import {createRequest, failedMovieMoreInfo} from '../helpers/Functions';
+import {Movie, MovieMoreInfo, reqBody} from '../helpers/Interfaces';
+import {createRequest, failedMovieMoreInfo, requestHelper} from '../helpers/Functions';
 import serverURL from '../helpers/URL';
 import colors from '../helpers/Colors';
 
@@ -32,15 +32,11 @@ const RemoveTile = ({movie}: Props) => {
      *                            and makes use of global variables.
      */
     const RemoveMovie = async () : Promise<void> => {
-        let reqData = createRequest({
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                accept: 'application/json',
-                contentType: 'application/json'
-            },
-            body: movie.imdbID,
-        });
+        if (movie.imdbID === "" || movie.imdbID === undefined || movie.imdbID === null) {
+            return Promise.resolve();
+        }
+        let bodyData : reqBody<string> = { "title": movie.imdbID };
+        let reqData = requestHelper(JSON.stringify(bodyData));
         try {
             const response = await fetch(serverURL + '/watch_list/remove', reqData);
             const obj = await response.json();

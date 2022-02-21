@@ -11,8 +11,8 @@ const axios = require('axios').default;
  * function to retrieve all availabile info for an imdbID
  */
 const moreInfo = async (req: Request, res: Response, next: NextFunction) => {
+    console.log(JSON.stringify(req.body));
     logging.info(NAMESPACE, 'Searching for more movie info');
-
     const search_id: string = req.body.title;
     logging.info(NAMESPACE, search_id);
     try {

@@ -5,8 +5,8 @@
  */
 import React from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import {createRequest} from '../../helpers/Functions';
-import {MovieMoreInfo} from '../../helpers/Interfaces';
+import {addMovieRequest, requestHelper} from '../../helpers/Functions';
+import {MovieMoreInfo, addRequestBody, reqBody} from '../../helpers/Interfaces';
 import serverURL from '../../helpers/URL';
 import colors from '../../helpers/Colors';
 
@@ -37,15 +37,12 @@ const PopupRight = ({moreInfo}: Props) => {
      *                            and makes use of global variables.
      */
     const SaveMovie = async (): Promise<void> => {
-        const reqData = createRequest({
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                accept: 'application/json',
-                contentType: 'application/json'
-            },
-            body: JSON.stringify(moreInfo),
-        });
+
+        const bodyData: reqBody<MovieMoreInfo> = {
+            "title": moreInfo
+        };
+        let bodyString = JSON.stringify(bodyData);
+        const reqData = requestHelper(bodyString);
         try {
             const response = await fetch(serverURL + '/watch_list/add', reqData);
             const obj = await response.json();
@@ -54,17 +51,6 @@ const PopupRight = ({moreInfo}: Props) => {
             console.log(e);
         }
     }
-
-        
-    const reqDataRemove = {
-        method: 'DELETE',
-        mode: 'no-cors',
-        headers: {
-            accept: 'application/json',
-            contentType: 'application/json'
-        }
-    } as RequestInit;
-
 
     return (
         <View style={styles.container}>
@@ -77,7 +63,7 @@ const PopupRight = ({moreInfo}: Props) => {
                 </TouchableOpacity>
             </View> 
         </View>
-    )
+    );
 };
 
 const styles = StyleSheet.create({

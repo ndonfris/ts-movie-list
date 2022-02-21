@@ -1,6 +1,7 @@
-import { ActorMovie, Movie, MovieMoreInfo } from './Interfaces';
+import Mongo from '../config/db';
+import { Movie, MovieMoreInfo } from './Interfaces';
 
-function toMovie(moreInfo: MovieMoreInfo): Movie {
+export function toMovie(moreInfo: MovieMoreInfo): Movie {
     return {
         imdbID: moreInfo.imdbID,
         Title: moreInfo.Title,
@@ -10,19 +11,41 @@ function toMovie(moreInfo: MovieMoreInfo): Movie {
     } as Movie;
 }
 
-interface actorProps {
-    imdb_id: string;
-    title: string;
-    rating: number;
-    other: innerProp[];
+export function toMovieMoreInfo(toSave : any) {
+    const filter = {
+        imdbID: toSave["imdbID"],
+        imdbRating: toSave["imdbRating"],
+        imdbVotes: toSave["imdbVotes"],
+        Language: toSave["Language"],
+        Metascore: toSave["Metascore"],
+        Plot: toSave["Plot"],
+        Poster: toSave["Poster"],
+        Production: toSave["Production"],
+        Rated: toSave["Rated"],
+        Ratings: toSave["Ratings"],
+        Released: toSave["Released"],
+        Response: toSave["Response"],
+        Runtime: toSave["Runtime"],
+        Title: toSave["Title"],
+        Type: toSave["Type"],
+        Website: toSave["Website"],
+        Writer: toSave["Writer"],
+        Year: toSave["Year"],
+        Genre: toSave["Genre"],
+        DVD: toSave["DVD"],
+        Director: toSave["Director"],
+        Country: toSave["Country"],
+        BoxOffice: toSave["BoxOffice"],
+        Awards: toSave["Awards"],
+        Actors: toSave["Actors"],
+    };
+    return filter;
 }
 
-interface innerProp {
-    role?: string;
-    actor?: {
-        imdb_id: string;
-        name: string;
-    };
+export async function getAllMoviesHelper(mongo: Mongo) {
+    await mongo.connect();
+
+
 }
 
 //function extractActor(Props: actorProps) {
@@ -35,4 +58,3 @@ interface innerProp {
 //}
 //
 //export default {toMovie, extractActor};
-export default toMovie;

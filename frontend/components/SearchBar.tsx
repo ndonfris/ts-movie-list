@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
         height: 50,
         textAlign: 'center',
         backgroundColor: colors.barDarker,
+        color: colors.dullWhite,
         borderRadius: 20,
         paddingLeft: 20,
         paddingRight: 20,
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
     text: {
-        color: colors.black
+        color: colors.dullWhite
     }
 });
 

@@ -34,6 +34,9 @@ export default function SearchRoute() {
      */
     const searchQuery = async () : Promise<Movie[]> => {
         Keyboard.dismiss();
+        if (query === "") {
+            return;
+        }
         let reqData = createRequest({
             method: 'POST',
             mode: 'no-cors',

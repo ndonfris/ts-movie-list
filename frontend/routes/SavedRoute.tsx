@@ -28,7 +28,8 @@ const SavedRoute = () => {
             await res.json().then(res => setMovies(res)).catch(err => console.warn(err));
         }
         retrieveMovies();
-    }, [refreshing]);
+        setRefreshing(false);
+    }, [removing, refreshing]);
 
     return (
         <View style={styles.container}>

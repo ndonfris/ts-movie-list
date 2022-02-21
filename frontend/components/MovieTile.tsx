@@ -5,8 +5,8 @@
  */
 import React, {useState} from 'react';
 import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
-import {Movie, MovieMoreInfo} from '../helpers/Interfaces';
-import {createRequest, failedMovieMoreInfo} from '../helpers/Functions';
+import {Movie, MovieMoreInfo, reqBody} from '../helpers/Interfaces';
+import {failedMovieMoreInfo, requestHelper} from '../helpers/Functions';
 import serverURL from '../helpers/URL';
 import Popup from './Popup';
 
@@ -37,17 +37,16 @@ const MovieTile = ({movie}: Props) => {
      *                            and makes use of global variables.
      */
     const ShowMoreInfo = async () : Promise<void> => {
-        let reqData = createRequest({
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                accept: 'application/json',
-                contentType: 'application/json'
-            },
-            body: movie.imdbID,
-        });
+        const bodyData: reqBody<string> = {
+            "title": movie.imdbID
+        };
+        const reqData = requestHelper(JSON.stringify(bodyData));
+        if (reqData == {}) {
+            console.log("reqData empty");
+            return new Promise(() : void => {});
+        }
         try {
-            const response = await fetch(serverURL + '/movie/moreInfo', reqData);
+            const response = await fetch(serverURL + '/movie/more_info', reqData);
             const obj = await response.json();
             console.log(obj);
             setMoreInfo(obj);
