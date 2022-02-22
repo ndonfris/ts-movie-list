@@ -34,24 +34,25 @@ App is available on [ __http://snack.expo.dev__ ](https://snack.expo.dev/@ndonfr
 * if that link doesn't work, try importing this git repo __make sure you do
 the sub directory /frontend though (example below)__  
 ___
-step 1  
+__step 1__  
 <div>
     <img src="./images/help_image_1.png" width="50%" height="75%" />
 </div>
 ___
-setp 2  
+__step 2__  
 <div>
     <img src="./images/help_screenshot_2.png" width="50%" height="75%" />
 </div>
+  
 ___
   
----
-video submission  
-<div>
-    <video src='https://vimeo.com/manage/videos/680347279' width=180/>
-</div>
 
+---   
+
+[video submission](https://vimeo.com/manage/videos/680347279)  
+  
 ---
+ 
 Anything below here should not necessary, but may be relevant if you are having
 issues.
 
