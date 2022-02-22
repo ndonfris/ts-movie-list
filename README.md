@@ -28,7 +28,7 @@ note: the icons are being clicked on to open external apps
   
   
   
-App is available on [ __http://snack.expo.dev__ ](https://snack.expo.dev/@ndonfris29/github.com-ndonfris-ts-movie-list:frontend)
+App is available on [ __official url__ ](https://expo.dev/@ndonfris29/ts-movie-list?serviceType=classic&distribution=expo-go) or [ __http://snack.expo.dev (backup url).__ ](https://snack.expo.dev/@ndonfris29/github.com-ndonfris-ts-movie-list:frontend)
   
 
 * if that link doesn't work, try importing this git repo __make sure you do
