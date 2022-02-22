@@ -19,13 +19,18 @@ react-native,and expo-cli to compile and run the program. The backend uses
 nodemon and mongodb to host the server. 
 
 
-## This is what the updated UI should look like
+## This is what the updated UI should look like.
 <div>
     <img src="./images/updated_ui.gif" width="50%" height="75%" />
 </div>
+  
+note: the icons are being clicked on to open external apps
+  
+  
+  
+App is available on [ __http://snack.expo.dev__ ](https://snack.expo.dev/@ndonfris29/github.com-ndonfris-ts-movie-list:frontend)
+  
 
-
-App is avaliable on [http://snack.expo.dev](https://snack.expo.dev/@ndonfris29/github.com-ndonfris-ts-movie-list:frontend)
 * if that link doesn't work, try importing this git repo __make sure you do
 the sub directory /frontend though (example below)__  
 ___
@@ -43,7 +48,7 @@ ___
 ---
 video submission  
 <div>
-    <video src='./images/presentation_video_fixed.mp4' width=180/>
+    <video src='https://vimeo.com/manage/videos/680347279' width=180/>
 </div>
 
 ---
