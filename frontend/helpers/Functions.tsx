@@ -146,16 +146,5 @@ export function noStreamingSites(imdbID : string): StreamWebsite[] {
     }]
 }
 
-export function addMovieRequest(reqBody: addRequestBody) : RequestInit {
-    return {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-            accept: 'application/json',
-            contentType: 'application/json'
-        },
-        body: JSON.stringify(reqBody),
-    };               
-}
 
 

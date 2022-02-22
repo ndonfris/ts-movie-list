@@ -1,15 +1,20 @@
-import { toMovie } from '../helpers/Functions';
-import { Movie } from '../helpers/Interfaces';
-import { Request, Response } from 'express';
-import { MongoClient } from 'mongodb';
-import Mongo from '../config/db';
-import { MovieObj } from '../helpers/MovieMoreInfoClass';
+import { checkKey, generateErrorResponse } from "../helpers/Functions";
+import { Movie } from "../helpers/Interfaces";
+import { Request, Response } from "express";
+import Mongo from "../config/db";
+import {MovieObj} from "../helpers/MovieObj";
 
+/* initialize Mongo instance for all controllers */
 const mongo = new Mongo();
-const url = 'mongodb://localhost:27017';
-let client = new MongoClient(url);
-const dbName = 'movies';
 
+/**
+ * @async getAllMoviesFull - retrieves the movies from the watchList collection and
+ *                           returns them as objects of the interface MovieMoreInfo
+ *
+ * @param req - the Request data from the frontend (req is not used because GET 'verb' )
+ * @param res - The Response this callback generates
+ *
+ */
 const getAllMoviesFull = async (req: Request, res: Response) => {
     try {
         await mongo.connect();
@@ -25,6 +30,17 @@ const getAllMoviesFull = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * @async getAllMoviesLess - retrieves the movies from the watchList collection and
+ *                           returns them as objects of the interface Movie. This is
+ *                           used in the frontend to render the movie tiles for the
+ *                           Watchlist. It also allows for us to not call the external api
+ *                           to retrieve movie info for the MovieTile
+ *
+ * @param req - the Request data from the frontend (req is not used because GET 'verb' )
+ * @param res - The Response this callback generates
+ *
+ */
 const getAllMoviesLess = async (req: Request, res: Response) => {
     try {
         await mongo.connect();
@@ -40,7 +56,20 @@ const getAllMoviesLess = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * @async saveMovie - saves a movie in the MongoDB. This callback attempts to
+ *                    save all relevent information about the movie, to eliminante
+ *                    external api calls (which cost money).
+ *
+ * @param req - the Request data from the frontend (POST request so there is JSON data)
+ * @param res - The Response this callback generates
+ *
+ */
 const saveMovie = async (req: Request, res: Response) => {
+    if (!checkKey(req.body, "title")) {
+        generateErrorResponse(res, "saveMovie", "no title key");
+        return;
+    }
     const filter = new MovieObj(req.body.title);
     try {
         await mongo.connect();
@@ -56,7 +85,19 @@ const saveMovie = async (req: Request, res: Response) => {
     }
 };
 
+
+/**
+ * @async removeMofie - removes a movie from the 'movies' mongoDB collection named 'watchList'
+ *
+ * @param req - the Request data from the frontend (POST request so there is JSON data)
+ * @param res - The Response this callback generates
+ *
+ */
 const removeMovie = async (req: Request, res: Response) => {
+    if (!checkKey(req.body, "title")) {
+        generateErrorResponse(res, "saveMovie", "no title key");
+        return;
+    }
     const toRemove = req.body.title;
     const filter = { imdbID: toRemove };
     try {
@@ -68,8 +109,13 @@ const removeMovie = async (req: Request, res: Response) => {
     } catch (error) {
         console.log(error);
     } finally {
-        await client.close();
+        await mongo.disconnect();
     }
 };
 
-export default { getAllMoviesFull, getAllMoviesLess, saveMovie, removeMovie };
+export default {
+    getAllMoviesFull,
+    getAllMoviesLess,
+    saveMovie,
+    removeMovie
+};

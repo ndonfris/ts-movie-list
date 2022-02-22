@@ -8,30 +8,31 @@
  */
 
 const MORE_INFO_HEADERS = {
-    'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com',
-    'x-rapidapi-key': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+  "x-rapidapi-host": "movie-database-imdb-alternative.p.rapidapi.com",
+  "x-rapidapi-key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 };
 
 const STREAMING_INFO_HEADERS = {
-    'x-rapidapi-host': 'utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com',
-    'x-rapidapi-key': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+  "x-rapidapi-host":
+    "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
+  "x-rapidapi-key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 };
 
 const SEARCH_MOVIE = {
-    'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com',
-    'x-rapidapi-key': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+  "x-rapidapi-host": "movie-database-imdb-alternative.p.rapidapi.com",
+  "x-rapidapi-key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 };
 
 const SEARCH_ACTOR = {
-    'x-rapidapi-host': 'data-imdb1.p.rapidapi.com',
-    'x-rapidapi-key': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+  "x-rapidapi-host": "data-imdb1.p.rapidapi.com",
+  "x-rapidapi-key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 };
 
 const apiKeys = {
-    searchMovie: SEARCH_MOVIE,
-    searchActor: SEARCH_ACTOR,
-    moreInfo: MORE_INFO_HEADERS,
-    streamingInfo: STREAMING_INFO_HEADERS
+  searchMovie: SEARCH_MOVIE,
+  searchActor: SEARCH_ACTOR,
+  moreInfo: MORE_INFO_HEADERS,
+  streamingInfo: STREAMING_INFO_HEADERS,
 };
 
 export default apiKeys;

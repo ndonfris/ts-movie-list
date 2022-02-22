@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "620d41faa2f4cf73baf8ff5b"
+  },
+  "imdbID": "tt1345836",
+  "imdbRating": "8.4",
+  "imdbVotes": "1,617,318",
+  "Language": "English, Arabic",
+  "Metascore": "78",
+  "Plot": "Despite his tarnished reputation after the events of The Dark Knight (2008), in which he took the rap for Dent's crimes, Batman feels compelled to intervene to assist the city and its Police force, which is struggling to cope with Bane's plans to destroy the city.",
+  "Poster": "https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_SX300.jpg",
+  "Production": "N/A",
+  "Rated": "PG-13",
+  "Ratings": [
+    {
+      "Source": "Internet Movie Database",
+      "Value": "8.4/10"
+    },
+    {
+      "Source": "Rotten Tomatoes",
+      "Value": "87%"
+    },
+    {
+      "Source": "Metacritic",
+      "Value": "78/100"
+    }
+  ],
+  "Released": "20 Jul 2012",
+  "Response": "True",
+  "Runtime": "164 min",
+  "Title": "The Dark Knight Rises",
+  "Type": "movie",
+  "Website": "N/A",
+  "Writer": "Jonathan Nolan, Christopher Nolan, David S. Goyer",
+  "Year": "2012",
+  "Genre": "Action, Crime, Drama",
+  "DVD": "04 Dec 2012",
+  "Director": "Christopher Nolan",
+  "Country": "United States, United Kingdom",
+  "BoxOffice": "$448,139,099",
+  "Awards": "Nominated for 1 BAFTA Film Award39 wins & 103 nominations total",
+  "Actors": "Christian Bale, Tom Hardy, Anne Hathaway"
+},{
+  "_id": {
+    "$oid": "6211bced3fc5eb8a5a49c1e9"
+  },
+  "imdbID": "tt1049413",
+  "imdbRating": "8.2",
+  "imdbVotes": "999,911",
+  "Language": "English",
+  "Metascore": "88",
+  "Plot": "As a boy, Carl Fredricksen wanted to explore South America and find the forbidden Paradise Falls. About 64 years later he gets to begin his journey along with Boy Scout Russell by lifting his house with thousands of balloons. On their journey, they make many new friends including a talking dog, and figure out that someone has evil plans. Carl soon realizes that this evildoer is his childhood idol.",
+  "Poster": "https://m.media-amazon.com/images/M/MV5BMTk3NDE2NzI4NF5BMl5BanBnXkFtZTgwNzE1MzEyMTE@._V1_SX300.jpg",
+  "Production": "N/A",
+  "Rated": "PG",
+  "Ratings": [
+    {
+      "Source": "Internet Movie Database",
+      "Value": "8.2/10"
+    },
+    {
+      "Source": "Rotten Tomatoes",
+      "Value": "98%"
+    },
+    {
+      "Source": "Metacritic",
+      "Value": "88/100"
+    }
+  ],
+  "Released": "29 May 2009",
+  "Response": "True",
+  "Runtime": "96 min",
+  "Title": "Up",
+  "Type": "movie",
+  "Website": "N/A",
+  "Writer": "Pete Docter, Bob Peterson, Tom McCarthy",
+  "Year": "2009",
+  "Genre": "Animation, Adventure, Comedy",
+  "DVD": "10 Nov 2009",
+  "Director": "Pete Docter, Bob Peterson",
+  "Country": "United States",
+  "BoxOffice": "$293,004,164",
+  "Awards": "Won 2 Oscars. 79 wins & 87 nominations total",
+  "Actors": "Edward Asner, Jordan Nagai, John Ratzenberger"
+}]

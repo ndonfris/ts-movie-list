@@ -1,46 +1,64 @@
-import { Request, Response } from 'express';
-import { MongoClient, WithId } from 'mongodb';
+import { Request, Response } from "express";
+import { checkKey, generateErrorResponse } from "../helpers/Functions";
+import Mongo from '../config/db';
 
-const url = 'mongodb://localhost:27017';
-const client = new MongoClient(url);
+/* initialize Mongo instance for both controllers */
+const mongo = new Mongo();
 
-const dbName = 'movies';
-
+/**
+ * @async genreSearch - searches the topIMDb collection in the movies
+ *                      MongoDB, by the Genre passed in through the body
+ *                      of the Request.
+ *
+ * @param req - Request sent from frontend, formatted:
+ *              { "body" : "genre" }
+ *
+ * @param response - Response containing the movies found
+ */
 const genreSearch = async (req: Request, res: Response) => {
+    if (!checkKey(req.body, "Genre")) {
+        generateErrorResponse(res, "genreSearch", "no genre key");
+        return;
+    }
     const genre: string = req.body.Genre;
-    const genreString = genre;
-    const filter = {
-        Genre: {
-            $regex: genreString
-        }
-    };
-    console.log(genreString);
+    /* creates a filter, using regex to search the Genre Strings in the Database */
+    const filter = { Genre: { $regex: genre } };
     try {
-        await client.connect();
-        console.log('Connected to mongoDB successfully');
-        const db = client.db(dbName);
-        const collection = db.collection('topIMDbExtended');
-        const results = await collection.find(filter).toArray();
-        console.log(results);
+        await mongo.connect();
+        mongo.connectToCollection("topIMDbExtended");
+        const results = await mongo.getEveryMatchingRecord(filter);
         res.status(201).json(results);
-        client.close();
     } catch (error) {
         console.log(error);
+        res.status(501).json({});
+    } finally {
+        await mongo.disconnect();
     }
 };
 
+/**
+ * @async allMovies - retrieve all movies in the topIMDbExtended collection
+ *                    in the mongodb
+ *
+ * @param req - empty Request from the fronted, since allMovies is called from
+ *              a get request.
+ *
+ * @param res - all movies in the topIMDbExtended database.
+ */
 const allMovies = async (req: Request, res: Response) => {
     try {
-        await client.connect();
-        console.log('Connected to mongoDB successfully');
-        const db = client.db(dbName);
-        const collection = db.collection('topIMDbExtended');
-        const results = await collection.find({}).toArray();
-        results ? res.status(201).json(results) : res.status(500).send(`Failed to retreive top 250 imdb movies`);
-        client.close();
+        await mongo.connect();
+        mongo.connectToCollection("topIMDbExtended");
+        const results = await mongo.getAllRecordsFull();
+        results
+            ? res.status(201).json(results)
+            : res.status(500).json({});
     } catch (error) {
         console.log(error);
+    } finally {
+        await mongo.disconnect();
     }
+
 };
 
 export default { genreSearch, allMovies };

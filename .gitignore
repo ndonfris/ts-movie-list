@@ -1,5 +1,4 @@
 **/node_modules
-*.mp4
 frontend/.expo/
 dist/
 npm-debug.*
@@ -13,6 +12,7 @@ npm-debug.*
 *.MOV
 web-build/
 **/apiKeys.*
+**/mongoKeys.*
 
 # macOS
 .DS_Store

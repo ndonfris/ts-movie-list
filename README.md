@@ -16,9 +16,43 @@ some of the following information on a movie:
 This Files have been documented extensively, even-though typescript creates
 automatic documentation through your LSP. The frontend uses the frameworks 
 react-native,and expo-cli to compile and run the program. The backend uses 
-nodemon and mongodb to host the server. Below shows demos of the three main screens.
-Information about the installation process can be found below.
+nodemon and mongodb to host the server. 
 
+
+## This is what the updated UI should look like
+<div>
+    <img src="./images/updated_ui.gif" width="50%" height="75%" />
+</div>
+
+
+App is avaliable on [http://snack.expo.dev](https://snack.expo.dev/@ndonfris29/github.com-ndonfris-ts-movie-list:frontend)
+* if that link doesn't work, try importing this git repo __make sure you do
+the sub directory /frontend though (example below)__  
+___
+step 1  
+<div>
+    <img src="./images/help_image_1.png" width="50%" height="75%" />
+</div>
+___
+setp 2  
+<div>
+    <img src="./images/help_screenshot_2.png" width="50%" height="75%" />
+</div>
+___
+  
+---
+video submission  
+<div>
+    <video src='./images/presentation_video_fixed.mp4' width=180/>
+</div>
+
+---
+Anything below here should not necessary, but may be relevant if you are having
+issues.
+
+___
+Below shows demos of the three main screens.
+Information about the installation process can be found below. 
 
 ##### Main Application Screens  
 
@@ -165,21 +199,4 @@ ngrok http 3000
 * so copy the http://url.ngrok.io
 
 ___
-
-##### Future Goals
-* add installation script 
-
-* add popupleft feature for -> find similar movies (rapid api has free imdb-api with this feature)
-
-* [this is the 100% free api to implement](https://rapidapi.com/SAdrian/api/data-imdb1/)
-    * get keywords to movie 
-    * use getMoviesByKeyword
-    * also has man other useful api calls, but only renders {"imdb_id": ..., "title": ...}  
-
-* [switch to this api for searches?](https://rapidapi.com/hmerritt/api/imdb-internet-movie-database-unofficial/)
-
-* add browse onChange feature 
-    * [dropdown picker website](https://hossein-zare.github.io/react-native-dropdown-picker-website/docs/usage)
-    * [rapid api link - advanced movie search](https://rapidapi.com/jakash1997/api/advanced-movie-search/)
-    * [maybe add api for in theaters results](https://rapidapi.com/patriciaatrindade/api/movies115/)
 

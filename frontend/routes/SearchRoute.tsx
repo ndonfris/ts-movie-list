@@ -7,8 +7,8 @@ import React, {useState} from 'react';
 import {Keyboard, View, StyleSheet} from 'react-native';
 import SearchBar from '../components/SearchBar';
 import MovieList from '../components/MovieList';
-import {createRequest} from '../helpers/Functions';
-import {Movie} from '../helpers/Interfaces';
+import {createRequest, requestHelper} from '../helpers/Functions';
+import {Movie, reqBody} from '../helpers/Interfaces';
 import serverURL from '../helpers/URL';
 import Movies from '../assets/Top250MoviesShort.json';
 import colors from '../helpers/Colors';
@@ -37,15 +37,8 @@ export default function SearchRoute() {
         if (query === "") {
             return;
         }
-        let reqData = createRequest({
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                accept: 'application/json',
-                contentType: 'application/json'
-            },
-            body: query,
-        });
+        let bodyData: reqBody<string> = { "title": query };
+        let reqData = requestHelper(JSON.stringify(bodyData));
         try {
             const response = await fetch(serverURL+"/search/title", reqData);
             const body = await response.json();

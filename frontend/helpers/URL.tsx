@@ -6,6 +6,7 @@
  */
 
 
-const serverURL = "http://2f26-2600-8800-7888-7900-dff6-f4b4-ff1b-2a69.ngrok.io";
+//const serverURL = "http://2f26-2600-8800-7888-7900-dff6-f4b4-ff1b-2a69.ngrok.io";
+const serverURL = "https://ts-movie-server-mini.herokuapp.com";
 
 export default serverURL;

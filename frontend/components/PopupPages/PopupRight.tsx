@@ -5,8 +5,8 @@
  */
 import React from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import {addMovieRequest, requestHelper} from '../../helpers/Functions';
-import {MovieMoreInfo, addRequestBody, reqBody} from '../../helpers/Interfaces';
+import { requestHelper } from '../../helpers/Functions';
+import { MovieMoreInfo, reqBody } from '../../helpers/Interfaces';
 import serverURL from '../../helpers/URL';
 import colors from '../../helpers/Colors';
 
