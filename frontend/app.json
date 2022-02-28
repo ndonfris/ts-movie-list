@@ -1,9 +1,10 @@
 {
   "expo": {
-    "owner":"arizona-cs337-ts-movie-list",
     "name": "ts-movie-list",
     "slug": "ts-movie-list",
     "version": "1.0.0",
+    "privacy": "public",
+    "githubUrl": "https://github.com/ndonfris/ts-movie-list",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
