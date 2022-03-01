@@ -57,9 +57,9 @@ expo start
 
   
 As pointed out to me on piazza, ios devices don't allow expo links to be shared.
-Therefore if you are on an device the official link below does not work.
-It is recommended the the installation method above is followed but,
-for andriod users, the [ __official url__ ](https://expo.dev/@ndonfris29/ts-movie-list?serviceType=classic&distribution=expo-go) might work.
+Therefore if you are on an device ios the official link below does not work.
+It is recommended to use the installation method above, but 
+for andriod users the [ __official url__ ](https://expo.dev/@ndonfris29/ts-movie-list?serviceType=classic&distribution=expo-go) might work.
 
 
 
