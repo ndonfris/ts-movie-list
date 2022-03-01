@@ -29,7 +29,7 @@ note: the icons are being clicked on to open external apps
   
 ---
   
-## Easiest Testing Method will be described below:  
+## Testing/Viewing Method
 * you need to have a working version of [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed.
 * on your mobile device install an application called[ _expo go_ ](https://expo.dev/client) 
 * after installing expo on your devide, install the command line interface on
@@ -101,7 +101,12 @@ ___
 
 ___
 ### Testing/Viewing
-1. Go to (https://snack.expo.dev)[https://snack.expo.dev/@ndonfris29/github.com-ndonfris-ts-movie-list:frontend]
+note: this method uses snack, which seems to have trouble displaying entire 
+applications. It also does not handle version control very well. To properly
+have snack working you might need the backend server running on your machine.
+I included a script for this, but using the cloud server for testing via the
+method described above is recommended.   
+1. Go to [https://snack.expo.dev](https://snack.expo.dev/@ndonfris29/github.com-ndonfris-ts-movie-list:frontend)
 1. Navigate to the right side of the webpage.
 1. Pick your preferred method of viewing the application (my device, ios,
    andriod, or web).   
