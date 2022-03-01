@@ -29,7 +29,7 @@ note: the icons are being clicked on to open external apps
   
 ---
   
-Easiest Testing Method will be described below:  
+## Easiest Testing Method will be described below:  
 * you need to have a working version of [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed.
 * on your mobile device install an application called[ _expo go_ ](https://expo.dev/client) 
 * after installing expo on your devide, install the command line interface on
@@ -56,10 +56,11 @@ expo start
 * lastly use your mobile device with _expo go_ installed onto it to scan the qr code.
 
   
-As pointed out to me on piazza, ios devices don't allow expo links to shared.
+As pointed out to me on piazza, ios devices don't allow expo links to be shared.
 Therefore if you are on an device the official link below does not work.
 It is recommended the the installation method above is followed but,
 for andriod users, the [ __official url__ ](https://expo.dev/@ndonfris29/ts-movie-list?serviceType=classic&distribution=expo-go) might work.
+
 
 
 ---   
