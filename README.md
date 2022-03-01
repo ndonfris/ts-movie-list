@@ -28,24 +28,23 @@ note: the icons are being clicked on to open external apps
   
   
   
-App is available on [ __official url__ ](https://expo.dev/@ndonfris29/ts-movie-list?serviceType=classic&distribution=expo-go) or [ __http://snack.expo.dev (backup url).__ ](https://snack.expo.dev/@ndonfris29/github.com-ndonfris-ts-movie-list:frontend)
+~~App is available on [ __official url__ ](https://expo.dev/@ndonfris29/ts-movie-list?serviceType=classic&distribution=expo-go) or [ __http://snack.expo.dev (backup url).__ ](https://snack.expo.dev/@ndonfris29/github.com-ndonfris-ts-movie-list:frontend)~~
+---
   
-
-* if that link doesn't work, try importing this git repo __make sure you do
-the sub directory /frontend though (example below)__  
-___
-__step 1__  
-<div>
-    <img src="./images/help_image_1.png" width="50%" height="75%" />
-</div>
-___
-__step 2__  
-<div>
-    <img src="./images/help_screenshot_2.png" width="50%" height="75%" />
-</div>
-  
-___
-  
+Easiest Testing Method will be described below:  
+* on your mobile device install an application called ['expo go'](https://expo.dev/client)
+* next you need to have a working version of [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed.
+* clone the repo  
+* next cd into the frontend directory  
+* next run the following command to install the dependencies: 
+```bash
+npm install
+```
+* after the installation is finished run the following command:
+```bash
+expo start
+```
+* lastly use your device with _expo go_ installed onto it to scan the qr code.
 
 ---   
 

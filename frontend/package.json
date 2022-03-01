@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^12.0.0",
-    "@nghinv/react-native-swipe-row": "^0.1.1",
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/material-bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
@@ -26,7 +25,6 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
-    "react-native-cards-swipe": "^1.2.0",
     "react-native-carousel-library": "^1.0.0",
     "react-native-draggable-flatlist": "^3.0.5",
     "react-native-dropdown-picker": "^5.3.0",
@@ -35,7 +33,6 @@
     "react-native-reanimated": "~2.3.1",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
-    "react-native-snap-carousel": "^3.9.1",
     "react-native-svg": "^12.1.1",
     "react-native-swipe-action-list": "^0.0.6",
     "react-native-swipe-gestures": "^1.0.5",
@@ -43,7 +40,6 @@
     "react-native-swipe-list-view": "^3.2.9",
     "react-native-swipe-render": "^3.1.1",
     "react-native-swiper-animated": "^1.5.3",
-    "react-native-swiper-flatlist": "^3.0.16",
     "react-native-vector-icons": "^9.0.0",
     "react-native-web": "0.17.1",
     "react-svg-color": "^2.3.0"
@@ -55,5 +51,5 @@
     "babel-plugin-inline-import": "^3.0.0",
     "typescript": "~4.3.5"
   },
-  "private": true
+  "private": false
 }
