@@ -27,16 +27,19 @@ nodemon and mongodb to host the server.
 note: the icons are being clicked on to open external apps
   
   
-  
-~~App is available on [ __official url__ ](https://expo.dev/@ndonfris29/ts-movie-list?serviceType=classic&distribution=expo-go) or [ __http://snack.expo.dev (backup url).__ ](https://snack.expo.dev/@ndonfris29/github.com-ndonfris-ts-movie-list:frontend)~~
 ---
   
 Easiest Testing Method will be described below:  
-* on your mobile device install an application called ['expo go'](https://expo.dev/client)
 * next you need to have a working version of [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed.
+* on your mobile device install an application called[ _expo go_ ](https://expo.dev/client) 
+* after installing expo on your devide, install the command line interface on
+your machine  
+```bash
+npm install -g expo-go
+```
 * clone the repo  
-* next cd into the frontend directory  
-* next run the following command to install the dependencies: 
+* cd into the frontend directory  
+* run the following command to install the dependencies: 
 ```bash
 npm install
 ```
@@ -45,6 +48,13 @@ npm install
 expo start
 ```
 * lastly use your device with _expo go_ installed onto it to scan the qr code.
+
+  
+As pointed out to me on piaza, ios devices don't allow expo links to shared.
+Therefore if you are on an device the official link below does not work.
+It is recommended the the installation method above is followed but,
+for andriod users, the [ __official url__ ](https://expo.dev/@ndonfris29/ts-movie-list?serviceType=classic&distribution=expo-go) might work.
+
 
 ---   
 
