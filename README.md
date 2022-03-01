@@ -30,7 +30,7 @@ note: the icons are being clicked on to open external apps
 ---
   
 Easiest Testing Method will be described below:  
-* next you need to have a working version of [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed.
+* you need to have a working version of [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed.
 * on your mobile device install an application called[ _expo go_ ](https://expo.dev/client) 
 * after installing expo on your devide, install the command line interface on
 your machine  
@@ -38,7 +38,13 @@ your machine
 npm install -g expo-go
 ```
 * clone the repo  
+```
+git clone https://github.com/ndonfris/ts-movie-list.git
+```
 * cd into the frontend directory  
+```bash
+cd ts-movie-list/frontend
+```
 * run the following command to install the dependencies: 
 ```bash
 npm install
@@ -67,7 +73,7 @@ issues.
 
 ___
 Below shows demos of the three main screens.
-Information about the installation process can be found below. 
+Extra information about the installation process can be found below. 
 
 ##### Main Application Screens  
 
@@ -105,7 +111,7 @@ If the above method (using snack) does not work, I have provided a script in thi
 extremely easy installation of the application.  
 ___
 
-## Installation
+## Installation of backend
 
 ---
 To start the entire application you will need to clone the repo and have a
